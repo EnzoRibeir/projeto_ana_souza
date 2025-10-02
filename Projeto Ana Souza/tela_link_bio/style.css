@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    body {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+        background-size: cover;
+        background-position: center center; 
+    }
+
+    .div_sombra_fundo {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.161);
+        position: absolute;
+    }
+
+    .div_fundo {
+        background-color: rgba(0, 0, 0, 0.319);
+        border-radius: 2rem;
+        /* 1. Define o gradiente de cores */
+        background-image: linear-gradient(
+        to top,               /* 2. Direção: de baixo para cima */
+        #ffffff40,              /* 3. Cor Inicial (Parte de Baixo): Cinza muito claro (quase branco) */
+        #48484810               /* 4. Cor Final (Parte de Cima): Cinza médio (mais escuro) */
+        );
+
+        width: 87%;
+        height: 60%;
+    
+    }
+
+    .div_logo {
+        margin-top: 6rem;
+        font-size: 1.2rem;
+    }
+
+    .div_redes_sociais {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.2rem;
+        margin-bottom: 0.7rem;
+        
+    }
+
+    .lista_icones_redes_sociais {
+        display: flex;
+        width: 60%;
+        justify-content: space-evenly;
+
+    }
+
+    .div_opcoes {
+
+
+    }
+
+    .lista_opcoes {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .lista_opcoes li {
+        margin-top: 0.7rem;
+        height: 18%;
+    }
+
+
+
+    .lista_opcoes li button {
+        width: 90%;
+        height: 3.8rem;
+        border-radius: 2rem;
+        border-color: #d2d2d2;
+        border-style: solid;
+        background-color: #00000000;
+        font-size: 1.1rem;
+        border-width: 2px
+    }   
+}
+
+body {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    max-height: 100vh;
+    background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+    background-size: cover;
+    background-position: top; 
+    background-repeat: no-repeat; 
+}
+
+.div_sombra_fundo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.161);
+    position: absolute;
+}
+
+.div_fundo {
+    background-color: rgba(0, 0, 0, 0.319);
+    border-radius: 2rem;
+    /* 1. Define o gradiente de cores */
+    background-image: linear-gradient(
+    to top,               /* 2. Direção: de baixo para cima */
+    #ffffff40,              /* 3. Cor Inicial (Parte de Baixo): Cinza muito claro (quase branco) */
+    #48484810               /* 4. Cor Final (Parte de Cima): Cinza médio (mais escuro) */
+    );
+
+    width: 87%;
+    height: 60%;
+
+}
+
+.div_logo {
+    margin-top: 6rem;
+    font-size: 1.2rem;
+}
+
+.div_redes_sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 0.7rem;
+    
+}
+
+.lista_icones_redes_sociais {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+
+}
+
+.div_opcoes {
+
+
+}
+
+.lista_opcoes {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lista_opcoes li {
+    margin-top: 0.7rem;
+    height: 18%;
+}
+
+
+
+.lista_opcoes li button {
+    width: 90%;
+    height: 3.8rem;
+    border-radius: 2rem;
+    border-color: #d2d2d2;
+    border-style: solid;
+    background-color: #00000000;
+    font-size: 1.1rem;
+    border-width: 2px
+}
