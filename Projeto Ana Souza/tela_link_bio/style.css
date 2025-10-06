@@ -8,6 +8,14 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color:  #d6e6c3;
+}
+
 
 @media screen and (max-width: 600px) {
     body {
@@ -96,7 +104,95 @@ li {
     }   
 }
 
-body {
+@media screen and (min-width: 601px)  and (max-width: 1023px) {
+    body {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+        background-size: cover;
+        background-position: center center; 
+    }
+
+    .div_sombra_fundo {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.161);
+        position: absolute;
+    }
+
+    .div_fundo {
+        background-color: rgba(0, 0, 0, 0.319);
+        border-radius: 2rem;
+        /* 1. Define o gradiente de cores */
+        background-image: linear-gradient(
+        to top,               /* 2. Direção: de baixo para cima */
+        #ffffff40,              /* 3. Cor Inicial (Parte de Baixo): Cinza muito claro (quase branco) */
+        #48484810               /* 4. Cor Final (Parte de Cima): Cinza médio (mais escuro) */
+        );
+
+        width: 87%;
+        height: 60%;
+    
+    }
+
+    .div_logo {
+        margin-top: 6rem;
+        font-size: 1.2rem;
+    }
+
+    .div_redes_sociais {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.2rem;
+        margin-bottom: 0.7rem;
+        
+    }
+
+    .lista_icones_redes_sociais {
+        display: flex;
+        width: 60%;
+        justify-content: space-evenly;
+
+    }
+
+    .div_opcoes {
+
+
+    }
+
+    .lista_opcoes {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .lista_opcoes li {
+        margin-top: 0.7rem;
+        height: 18%;
+    }
+
+
+
+    .lista_opcoes li button {
+        width: 90%;
+        height: 3.8rem;
+        border-radius: 2rem;
+        border-color: #d2d2d2;
+        border-style: solid;
+        background-color: #00000000;
+        font-size: 1.1rem;
+        border-width: 2px
+    }   
+}
+
+@media screen and (min-width: 1024px)    {
+    body {
     display: flex;
     align-items: center;
     text-align: center;
@@ -104,18 +200,20 @@ body {
     max-height: 100vh;
     background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
     background-size: cover;
-    background-position: top; 
+    background-position:top; 
     background-repeat: no-repeat; 
-}
+    }
 
-.div_sombra_fundo {
+    .div_sombra_fundo {
     width: 100%;
-    height: 100%;
+    height: 90rem;
     background-color: rgba(0, 0, 0, 0.161);
-    position: absolute;
-}
+    position:absolute;
+    }
 
-.div_fundo {
+    .div_fundo {
+    position: relative;
+    transform: translateY(30%);
     background-color: rgba(0, 0, 0, 0.319);
     border-radius: 2rem;
     /* 1. Define o gradiente de cores */
@@ -126,16 +224,16 @@ body {
     );
 
     width: 87%;
-    height: 60%;
+    height: 37rem;
 
-}
+    }
 
-.div_logo {
+    .div_logo {
     margin-top: 6rem;
-    font-size: 1.2rem;
-}
+    font-size: 1.5rem;
+    }
 
-.div_redes_sociais {
+    .div_redes_sociais {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,41 +241,48 @@ body {
     margin-top: 0.2rem;
     margin-bottom: 0.7rem;
     
-}
+    }
 
-.lista_icones_redes_sociais {
+    .lista_icones_redes_sociais {
     display: flex;
     width: 60%;
     justify-content: space-evenly;
 
-}
+    }
 
-.div_opcoes {
+    .lista_icones_redes_sociais li svg{
+    width: 1.5rem;
+    height: 1.5rem;
+
+    }
+
+    .div_opcoes {
 
 
-}
+    }   
 
-.lista_opcoes {
+    .lista_opcoes {
     display: flex;
     height: 100%;
     justify-content: center;
     flex-direction: column;
-}
+    }
 
-.lista_opcoes li {
+    .lista_opcoes li {
     margin-top: 0.7rem;
     height: 18%;
-}
+    }
 
 
 
-.lista_opcoes li button {
+    .lista_opcoes li button {
     width: 90%;
-    height: 3.8rem;
+    height: 4.5rem;
     border-radius: 2rem;
     border-color: #d2d2d2;
     border-style: solid;
     background-color: #00000000;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     border-width: 2px
+    }
 }
