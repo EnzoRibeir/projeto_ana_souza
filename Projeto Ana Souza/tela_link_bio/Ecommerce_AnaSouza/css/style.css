@@ -166,6 +166,10 @@ a {
   --bs-dropdown-link-active-bg: var(--bs-black);
 }
 
+.col-md-6 column-container bg-white {
+  margin-top: 70px;
+}
+
 /* list group */
 .list-group-item {
   --bs-list-group-item-padding-x: 0;
@@ -1059,7 +1063,7 @@ a {
 }
 
 .testimonial-swiper .testimonial-item blockquote {
-  font-size: 2.5em;
+  font-size: 2rem;
 }
 
 .testimonial-swiper .testimonial-item blockquote>p {
