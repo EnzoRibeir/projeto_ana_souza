@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-  <title>Ana Souza - Produtos</title>
+  <title>Ana Souza - Lista de Desejos</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <link rel="preconnect" href="https://spans.googleapis.com">
-  <link rel="preconnect" href="https://spans.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://spans.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
     rel="stylesheet">
 </head>
 
@@ -169,7 +169,7 @@
 
       <ul class="cat-list">
         <li class="cat-list-item">
-          <a href="#" title="Bolsas">Bolsas</a>
+          <a href="all_products.html" title="Bolsas">Bolsas</a>
         </li>
         <li class="cat-list-item">
           <a href="#" title="Acessórios">Acessórios</a>
@@ -318,355 +318,98 @@
     </div>
   </nav>
 
-
-  <section class="hero-section jarallax">
-    
-    <div class="py-5">
+  <section class="hero-section bg-light py-4">
+    <div class="hero-content">
       <div class="container">
         <div class="row">
+          <div class="text-center">
+            <div class="breadcrumbs">
+              <span class="item">
+                <a href="home_ecommerce.html">Home /</a>
+              </span>
+              <span class="item">Lista de desejos</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
-        <img src="resource/capa.png" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1350px; height: 710.633px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 120.184px; transform: translate3d(0px, -120.184px, 0px);">
-    </div>
-</section>
+  </section>
 
-<div class="py-5">
+  <section id="Wishlist" class="py-5 my-5">
     <div class="container">
-      <div class="row g-5">
-        <main class="main-content col-md-9">
-          <div class="row py-2">
-            <div class="col-md-9">
-              <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Mostrando 1–12 de 55 resultados</span></span>
-            </div>
-            <div class="col-md-3">
-              <select class="form-select border-0" aria-label="Exemplo de seleção padrão">
-                <option selected=""><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Classificação padrão</span></span></option>
-                <option value="1"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Cor</span></span></option>
-                <option value="2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Tamanho</span></span></option>
-                <option value="3"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Preço</span></span></option>
-              </select>
+      <div class="row text-dark my-3">
+        <div class="col-5 text-uppercase">Produto</div>
+        <div class="col-2 text-uppercase">Preço único</div>
+        <div class="col-2 text-uppercase">Status estoque</div>
+      </div>
+      <div class="product-wrapper">
+        <div class="product-item row align-items-center mb-4">
+          <div class="col-4 col-md-1 d-flex align-items-center text-left">
+            <a href="product_details.html">
+              <img srcset="resource/vendidos1.png" alt="wishlist" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-8 col-md-4">
+            <h3 class="item-title text-uppercase fs-5">
+              <a href="product_details.html">Chapéu Lea Vinho</a>
+            </h3>
+          </div>
+          <div class="col-3 col-md-2 product-price text-left">
+            <span class="item-price">R$399,99</span>
+          </div>
+          <div class="col-3 col-md-2 wishlist-stock text-left">
+            <span class="item-stock">Disponivel</span>
+          </div>
+          <div class="col-3 col-md-2 wishlist-add text-left">
+            <form action="" method="post" class="variants">
+              <a class="btn btn-outline-dark text-uppercase" title="Add to Cart" href="cart.html">Adicione ao carrinho</a>
+            </form>
+          </div>
+          <div class="col-3 col-md-1 text-left">
+            <div class="cart-remove">
+              <a href="#">
+                <svg width="32px">
+                  <use xlink:href="#trash"></use>
+                </svg>
+              </a>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque4.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="element-title text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Peça única florida escura</span></span></a>
-                  </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 250,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/categoria1.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa larga</span></span></a>
-                  </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 155,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/categoria2.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa off-white de algodão</span></span></a>
-                  </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 165,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque3.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Suéter curto</span></span></a>
-                  </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 350,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque5.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Suéter curto</span></span></a>
-                  </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 370,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque7.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Peça única florida escura</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 295,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/vendidos4.png" alt="produto" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa larga</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 455,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/vendidos3.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa off-white de algodão</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">$ 165,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/vendidos2.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Suéter agrícola feito à mão</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 110,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/categoria3.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Peça única florida escura</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 170,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque6.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa off-white de algodão</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 500,00</span></span></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3 product-item link-effect">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="resource/destaque8.png" alt="categorias" class="product-image img-fluid">
-                </a>
-                <a href="wishlist.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="single-product.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Camisa off-white de algodão</span></span></a>
-                  </h5>
-                  <a href="cart.html" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 160,00</span></span></span></a>
-                </div>
-              </div>
+        </div>
+        <div class="product-item row align-items-center mb-4">
+          <div class="col-4 col-md-1 d-flex align-items-center text-left">
+            <a href="product_details.html">
+              <img srcset="resource/destaque4.png" alt="wishlist" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-8 col-md-4">
+            <h3 class="item-title text-uppercase fs-5">
+              <a href="product_details.html">Bolsa croche</a>
+            </h3>
+          </div>
+          <div class="col-3 col-md-2 product-price text-left">
+            <span class="item-price">R$499,99</span>
+          </div>
+          <div class="col-3 col-md-2 wishlist-stock text-left">
+            <span class="item-stock">Indisponivel</span>
+          </div>
+          <div class="col-3 col-md-2 wishlist-add text-left">
+            <form action="" method="post" class="variants">
+              <a class="btn btn-outline-dark text-uppercase" title="Add to Cart" href="cart.html">Adicione ao carrinho</a>
+            </form>
+          </div>
+          <div class="col-3 col-md-1 text-left">
+            <div class="cart-remove">
+              <a href="#">
+                <svg width="32px">
+                  <use xlink:href="#trash"></use>
+                </svg>
+              </a>
             </div>
           </div>
-          <nav aria-label="Navegação de página" class="d-flex justify-content-center mt-5">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Anterior">
-                  <i class="icon icon-arrow-left"></i>
-                </a>
-              </li>
-              <li class="page-item active" aria-current="page"><a class="page-link" href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1</span></span></a></li>
-              <li class="page-item"><a class="page-link" href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2</span></span></a></li>
-              <li class="page-item"><a class="page-link" href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">3</span></span></a></li>
-              <li class="page-item"><a class="page-link" href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">4</span></span></a></li>
-              <li class="page-item"><a class="page-link" href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">5</span></span></a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Próximo">
-                  <i class="icon icon-arrow-right"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </main>
-        <aside class="col-md-3">
-          <div class="sidebar">
-            <div class="sidebar-categories border-animation-left mb-5">
-              <div class="text-dark text-uppercase"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Navegar por categorias:</span></span></div>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="item-anchor"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Tudo</span></span></a>
-                </li>
-                <li>
-                  <a href="#" class="item-anchor"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Bolsas</span></span></a>
-                </li>
-                <li>
-                  <a href="#" class="item-anchor"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Acessórios</span></span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="product-filter padding-small">
-              <div class="text-dark text-uppercase"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Filtrar por:</span></span></div>
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <div class="accordion-header" id="heading-one">
-                    <button class="accordion-button py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                      <span class="accordion-title fs-3"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Cor</span></span></span>
-                    </button>
-                  </div>
-                  <div id="collapse-one" class="accordion-collapse collapse show" aria-labelledby="heading-one">
-                    <div class="accordion-body">
-                      <div class="form-check">
-                        <label class="form-check-label red" for="red"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                          Vermelho (23)
-                          </span></span><input class="form-check-input" type="radio" name="color-option" id="red">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label brown" for="brown"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                          Marrom (9)
-                          </span></span><input class="form-check-input" type="radio" name="color-option" id="brown" checked="">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label green" for="green"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                          Verde (15)
-                          </span></span><input class="form-check-input" type="radio" name="color-option" id="green">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label aqua" for="aqua"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                          Verde água (18)
-                          </span></span><input class="form-check-input" type="radio" name="color-option" id="aqua" checked="">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <div class="accordion-header" id="heading-three">
-                    <button class="accordion-button py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-three" aria-expanded="true" aria-controls="collapse-three">
-                      <span class="accordion-title fs-3"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Preço</span></span></span>
-                    </button>
-                  </div>
-                  <div id="collapse-three" class="accordion-collapse collapse show" aria-labelledby="heading-three">
-                    <div class="accordion-body">
-                      <a href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Menos de R$ 150 </span></span><span class="count"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(15)</span></span></span></a>
-                      <a href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 150 - R$ 250 </span></span><span class="count"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(25)</span></span></span></a>
-                      <a href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 250 - R$ 350 </span></span><span class="count"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(50)</span></span></span></a>
-                      <a href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ 350 - R$ 500 </span></span><span class="count"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(20)</span></span></span></a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </aside>
+        </div>
       </div>
     </div>
-  </div>
-
+  </section>
 
   <section class="newsletter bg-light" style="background: url(resource/pattern-bg.png) no-repeat;">
     <div class="container">
@@ -795,7 +538,7 @@
                 <a href="home_ecommerce.html" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Produtos</a>
+                <a href="all_products.html" class="item-anchor">Produtos</a>
               </li>
               <li class="menu-item">
                 <a href="blog.html" class="item-anchor">Blog</a>
@@ -829,7 +572,7 @@
                 <a href="#" class="item-anchor">Encontre-nos facilmente</a>
               </li>
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Perguntas Frequentes</a>
+                <a href="home_ecommerce.html" class="item-anchor">Perguntas Frequentes</a>
               </li>
             </ul>
           </div>
