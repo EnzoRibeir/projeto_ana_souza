@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-  <title>Ana Souza - Produtos</title>
+  <title>Ana Souza - Login</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,10 @@
   <link rel="stylesheet" type="text/css" href="css/vendor.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <link rel="preconnect" href="https://spans.googleapis.com">
   <link rel="preconnect" href="https://spans.gstatic.com" crossorigin>
@@ -284,7 +288,7 @@
               </a>
             </li>
             <li class="d-none d-lg-block">
-              <a href="home_ecommerce.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="cart.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">Carrinho <span class="cart-count">(0)</span>
               </a>
             </li>
@@ -296,14 +300,14 @@
               </a>
             </li>
             <li class="d-lg-none">
-              <a href="#" class="mx-2">
+              <a href="wish_list.html" class="mx-2">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#heart"></use>
                 </svg>
               </a>
             </li>
             <li class="d-lg-none">
-              <a href="#" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#cart"></use>
@@ -348,15 +352,16 @@
           <form id="form" class="form-group flex-wrap">
             <div class="col-12 pb-3">
               <label>Nome de usuário ou endereço de e-mail *</label>
-              <input type="text" name="name" placeholder="Escreva seu nome de usuário / endereço de email aqui" class="form-control">
+              <input type="text" name="name" placeholder="Escreva seu nome de usuário / endereço de email aqui" class="form-control" required="">
             </div>
-            <div class="col-12 pb-3">
+            <div class="col-12 pb-3 position-relative">
               <label>Senha *</label>
-              <input type="text" name="email" placeholder="Digite sua senha" class="form-control">
+              <input id="txtSenhaLogin" type="password" name="senha" placeholder="Digite sua senha" class="form-control" required>
+              <i onclick="visualizarSenha('txtSenhaLogin');" class="fa-solid fa-eye-slash olho-senha1"></i>
             </div>
             <div class="col-12 pb-3">
               <label>
-                <input type="checkbox" required="">
+                <input type="checkbox">
                 <span class="label-body">Lembre-se de mim</span>
               </label>
             </div>
@@ -364,6 +369,11 @@
               <button type="submit" name="submit" class="btn btn-dark btn-large text-uppercase pb-3">Entrar</button>
               <p><a href="#">Esqueceu sua senha?</a></p>
             </div>
+            <div class="col-12 pt-3">
+              <p>Não tem uma conta cadastrada?</p>
+            </div>
+            <div class="col-12">
+              <a href="register.html" class="btn btn-dark btn-large text-uppercase pb-3">Cadastre-se</a>
           </form>
         </div>
       </div>
@@ -499,16 +509,16 @@
                 <a href="home_ecommerce.html" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Produtos</a>
+                <a href="all_products.html" class="item-anchor">Produtos</a>
               </li>
               <li class="menu-item">
                 <a href="blog.html" class="item-anchor">Blog</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Contato</a>
+                <a href="contact.html" class="item-anchor">Contato</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Sobre</a>
+                <a href="../lading page/index.html" class="item-anchor">Sobre</a>
               </li>
             </ul>
           </div>
@@ -527,13 +537,13 @@
                 <a href="#" class="item-anchor">Envio + Entrega</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contate-nos</a>
+                <a href="contact.html" class="item-anchor">Contate-nos</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Encontre-nos facilmente</a>
+                <a href="contact.html" class="item-anchor">Encontre-nos facilmente</a>
               </li>
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Perguntas Frequentes</a>
+                <a href="#" class="item-anchor">Perguntas Frequentes</a>
               </li>
             </ul>
           </div>
@@ -584,6 +594,9 @@
 </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script src="js/acessibilidade.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="js/register.js"></script>
 </body>
 
 </html>

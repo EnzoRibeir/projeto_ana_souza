@@ -153,6 +153,25 @@ a {
   --bs-dropdown-border-width: 0;
 }
 
+.olho-senha {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.olho-senha1 {
+  position: absolute;
+  top: 57%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6c757d;
+}
+
+
 .dropdown-item {
   --bs-dropdown-item-padding-y: 0.25rem;
   --bs-dropdown-item-padding-x: 1rem;
