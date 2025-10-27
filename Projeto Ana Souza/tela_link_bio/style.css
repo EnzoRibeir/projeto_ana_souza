@@ -8,13 +8,28 @@ li {
     list-style: none;
 }
 
-button {
-    text-decoration: none;
+.link-botao {
+  display: block;
+  width: 60%;               
+  margin: 12px auto;        
+  padding: 12px 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 40px;      
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
 }
 
-button:hover {
-    color:  #d6e6c3;
+.link-botao:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
 }
+
 
 
 @media screen and (max-width: 600px) {
@@ -91,17 +106,6 @@ button:hover {
     }
 
 
-
-    .lista_opcoes li button {
-        width: 90%;
-        height: 3.8rem;
-        border-radius: 2rem;
-        border-color: #d2d2d2;
-        border-style: solid;
-        background-color: #00000000;
-        font-size: 1.1rem;
-        border-width: 2px
-    }   
 }
 
 @media screen and (min-width: 601px)  and (max-width: 1023px) {
