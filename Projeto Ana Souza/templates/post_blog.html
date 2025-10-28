@@ -384,16 +384,19 @@
   </div>
 
   <section class="related-post post-wrap py-4">
-    <div class="container">
-      <div class="section-header d-flex align-items-center justify-content-between">
-        <h2 class="section-title text-uppercase">Publicações do Blog</h2>
-      </div>
-      <div class="row">
+  <div class="container">
+    <div class="section-header d-flex align-items-center justify-content-between">
+      <h2 class="section-title text-uppercase">Publicações do Blog</h2>
+    </div>
+    <div class="row">
+      {% if posts %}
         {% for post in posts %}
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="{{ url_for('blog_post', post_id=post.id) }}"><img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="post-grid-image img-fluid"></a>
+              <a href="{{ url_for('blog_post', post_id=post.id) }}">
+                <img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="post-grid-image img-fluid">
+              </a>
             </div>
             <div class="post-content">
               <div class="post-meta text-uppercase">
@@ -405,14 +408,15 @@
               </h5>
               <p>{{ post.subtitulo }}</p>
             </div>
-            {% else %}
-              <p>Nenhum post encontrado.</p>
-            {% endfor %}
           </article>
         </div>
-      </div>
+        {% endfor %}
+      {% else %}
+        <p>Nenhum post encontrado.</p>
+      {% endif %}
     </div>
-  </section>
+  </div>
+</section>
 
 
   <section class="newsletter bg-light" style="background: url('{{ url_for('static', filename='resource/pattern-bg.png') }}') no-repeat center center / cover;">

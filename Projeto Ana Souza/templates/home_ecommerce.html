@@ -912,63 +912,31 @@
         <a href="{{ url_for('blog') }}" class="btn-link">Veja todos</a>
       </div>
       <div class="row">
+        {% if posts %}
+        {% for post in posts %}
         <div class="col-md-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="post_{{ url_for('blog') }}">
-                <img src="static/resource/blog1.png" alt="image" class="post-grid-image img-fluid">
+              <a href="{{ url_for('blog_post', post_id=post.id) }}">
+                <img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="post-grid-image img-fluid">
               </a>
             </div>
             <div class="post-content d-flex flex-wrap gap-2 my-3">
               <div class="post-meta text-uppercase fs-6 text-secondary">
                 <span class="post-category">Moda /</span>
-                <span class="meta-day"> 25 jul, 2025</span>
+                <span class="meta-day">{{ post.data_publicacao }}</span>
               </div>
               <h5 class="post-title text-uppercase">
-                <a href="post_{{ url_for('blog') }}">Brincos que Respeitam o Planeta</a>
+                <a href="post_{{ url_for('blog') }}">{{ post.titulo }}</a>
               </h5>
-              <p>A beleza dos acessórios artesanais sustentáveis: moda consciente para todos os estilos.</p>
+              <p>{{ post.subtitulo }}</p>
             </div>
           </article>
         </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="post_{{ url_for('blog') }}">
-                <img src="static/resource/blog2.png" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Moda /</span>
-                <span class="meta-day"> 10 jun, 2025</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="post_{{ url_for('blog') }}">Headpieces Sustentáveis: Brilhe com Consciência</a>
-              </h5>
-              <p>Acessórios artesanais que transformam qualquer look em uma declaração de estilo e respeito ao meio ambiente.</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="post_{{ url_for('blog') }}">
-                <img src="static/resource/blog3.png" alt="image" class="post-grid-image img-fluid">
-              </a>
-            </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Moda /</span>
-                <span class="meta-day"> 10 out, 2025</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="post_{{ url_for('blog') }}">Bolsas que Contam Histórias</a>
-              </h5>
-              <p>Cada peça é única, feita à mão e pensada para mulheres que valorizam estilo e responsabilidade ambiental.</p>
-            </div>
-          </article>
-        </div>
+        {% endfor %}
+      {% else %}
+        <p>Nenhum post encontrado.</p>
+      {% endif %}
       </div>
     </div>
   </section>

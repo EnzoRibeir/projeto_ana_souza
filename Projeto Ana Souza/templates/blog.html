@@ -343,29 +343,30 @@
   <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);"><img src="static/resource/banner-large-1.jpg" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1263.33px; height: 495.135px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 12.4323px; transform: translate3d(0px, -18.4323px, 0px);"></div></section>
 
   <div class="post-wrap my-5 py-5">
-    <div class="container">
-      <div class="row">
-        <main class="post-list post-card-small">
-            <div class="row">
-               {% for post in posts %}
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="{{ url_for('blog_post', post_id=post.id) }}"><img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Moda</span> / <span class="meta-date">{{ post.data_publicacao }}</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.titulo }}</a>
-                    </h5>
-                    <p>{{ post.subtitulo }}</p>
-                  </div>
-                  {% else %}
-                    <p>Nenhum post encontrado.</p>
-                  {% endfor %}
+  <div class="container">
+    <div class="row">
+      {% for post in posts %}
+      <div class="col-md-4 mb-4"> 
+        <article class="post-item">
+          <div class="post-image">
+            <a href="{{ url_for('blog_post', post_id=post.id) }}">
+              <img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="img-fluid">
+            </a>
+          </div>
+          <div class="post-content">
+            <div class="post-meta text-uppercase py-2">
+              <span class="post-category">Moda</span> / <span class="meta-date">{{ post.data_publicacao }}</span>
+            </div>
+            <h5 class="post-title text-uppercase">
+              <a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.titulo }}</a>
+            </h5>
+            <p>{{ post.subtitulo }}</p>
+          </div>
+        </article>
+      </div>
+      {% else %}
+        <p>Nenhum post encontrado.</p>
+      {% endfor %}
                 </article>
               </div>
 
