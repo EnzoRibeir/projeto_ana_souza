@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "segredo_super_seguro"
@@ -28,6 +29,30 @@ class Produto(db.Model):
     quantidade_estoque = db.Column(db.Integer, nullable=False)
     cor = db.Column(db.String(50))
     imagem = db.Column(db.String(200))  # caminho da imagem na pasta static
+    
+class Pedido(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.DateTime, default=datetime.utcnow)
+    status = db.Column(db.String(50), default="Em processamento")
+    usuario_id = db.Column(db.Integer, db.ForeignKey("usuario.id"), nullable=False)
+    
+    # Relação com produtos do pedido
+    itens = db.relationship("PedidoProduto", backref="pedido", lazy=True)
+
+    def total(self):
+        """Calcula o total do pedido"""
+        return sum([item.preco_unitario * item.quantidade for item in self.itens])
+
+
+class PedidoProduto(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    pedido_id = db.Column(db.Integer, db.ForeignKey("pedido.id"), nullable=False)
+    produto_id = db.Column(db.Integer, db.ForeignKey("produto.id"), nullable=False)
+    quantidade = db.Column(db.Integer, nullable=False, default=1)
+    preco_unitario = db.Column(db.Float, nullable=False)
+
+    # Relacionamento com o produto
+    produto = db.relationship("Produto")
 
 # ----------------- COLUNA DE POST DO BLOG -----------------
 class Post(db.Model):
@@ -75,13 +100,17 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # Se já estiver logado, redireciona para user
+    if "usuario" in session:
+        return redirect(url_for("user_info"))
+    
     if request.method == "POST":
         email = request.form["email"]
         senha = request.form["senha"]
         usuario = Usuario.query.filter_by(email=email).first()
 
         if usuario and check_password_hash(usuario.senha, senha):
-            session["usuario"] = usuario.nome
+            session["usuario"] = usuario.email
             return redirect(url_for("home"))
         else:
             return "Email ou senha inválidos!"
@@ -203,6 +232,30 @@ def contact():
 @app.route("/sobre")
 def lading_page():
     return render_template("lading_page/index.html")
+
+@app.route('/user')
+def user_info():
+    # Verifica se o usuário está logado
+    user_email = session.get('usuario')
+    if not user_email:
+        return redirect(url_for('login'))
+    
+    # Busca o usuário no banco
+    user = Usuario.query.filter_by(email=user_email).first()
+    if not user:
+        return redirect(url_for('login'))
+    
+    return render_template('user_info.html', user=user)
+
+@app.route("/edit_profile", methods=["GET", "POST"])
+def edit_profile():
+    # código para editar perfil
+    return "Página de edição de perfil"
+
+@app.route("/edit_address", methods=["GET", "POST"])
+def edit_address():
+    # código para editar endereço
+    return "Editar endereço"
 
 
 # ----------------- INICIALIZAR BANCO -----------------
