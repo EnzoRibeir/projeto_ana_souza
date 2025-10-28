@@ -10,7 +10,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
-# ----------------- MODELO DE USUÁRIO -----------------
+# ----------------- COLUNA DE USUÁRIO -----------------
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100))
@@ -18,6 +18,16 @@ class Usuario(db.Model):
     senha = db.Column(db.String(200))
     data_nascimento = db.Column(db.String(10))
     telefone = db.Column(db.String(15))
+    
+# ----------------- COLUNA DE PRODUTO -----------------
+class Produto(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(100), nullable=False)
+    descricao = db.Column(db.Text, nullable=False)
+    preco = db.Column(db.Float, nullable=False)
+    quantidade_estoque = db.Column(db.Integer, nullable=False)
+    cor = db.Column(db.String(50))
+    imagem = db.Column(db.String(200))  # caminho da imagem na pasta static
 
 # ----------------- ROTAS -----------------
 @app.route("/")
@@ -73,8 +83,11 @@ def logout():
     return redirect(url_for("login"))
 
 @app.route("/todos_produtos")
-def all_products():
-    return render_template("all_products.html")
+def all_products():    
+    lista_produtos = Produto.query.all()  # pega todos os produtos
+    print(lista_produtos)  
+    return render_template("all_products.html", produtos=lista_produtos)
+
 
 @app.route("/produto/<int:produto_id>")
 def product_details(produto_id):
