@@ -168,13 +168,12 @@
       </form>
 
       <h5 class="cat-list-title">Pesquisa por categoria</h5>
-
       <ul class="cat-list">
         <li class="cat-list-item">
-          <a href="all_products.html" title="Bolsas">Bolsas</a>
+          <a href="{{ url_for('all_products') }}" title="Bolsas">Bolsas</a>
         </li>
         <li class="cat-list-item">
-          <a href="all_products.html" title="Acessórios">Acessórios</a>
+          <a href="{{ url_for('all_products') }}" title="Acessórios">Acessórios</a>
         </li>
       </ul>
 
@@ -258,10 +257,10 @@
                     aria-haspopup="true" aria-expanded="false">Produtos</a>
                   <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Bolsas</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Bolsas</a>
                     </li>
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Acessórios</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Acessórios</a>
                     </li>
                   </ul>
                 </li>
