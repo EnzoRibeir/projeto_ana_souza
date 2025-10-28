@@ -13,9 +13,11 @@
   <meta name="description" content="Bootstrap 5 Fashion Store HTML CSS Template">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,7 +230,7 @@
 
         <div class="col-auto">
           <a class="navbar-brand text-white" href="home_ecommerce.html">
-            <img src="resource/logo.png" alt="Logo da empresa" width="200" height="45">
+            <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
           </a>
         </div>
 
@@ -344,10 +346,10 @@
                 <div class="swiper product-thumbnail-slider swiper-initialized swiper-vertical swiper-backface-hidden swiper-thumbs">
                   <div class="swiper-wrapper" id="swiper-wrapper-c650f5ea866cee6d" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
                     <div class="swiper-slide swiper-slide-visible swiper-slide-active swiper-slide-thumb-active" role="group" aria-label="1 / 5" style="height: 250px; margin-bottom: 20px;">
-                      <img src="resource/categoria1.png" alt="" class="thumb-image img-fluid">
+                      <img src="static/resource/categoria1.png" alt="" class="thumb-image img-fluid">
                     </div>
                     <div class="swiper-slide swiper-slide-visible swiper-slide-next" role="group" aria-label="2 / 5" style="height: 250px; margin-bottom: 20px;">
-                      <img src="resource/vendidos1.png" alt="" class="thumb-image img-fluid">
+                      <img src="static/resource/vendidos1.png" alt="" class="thumb-image img-fluid">
                     </div>
                   </div>
                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
@@ -358,10 +360,10 @@
                 <div class="swiper product-large-slider swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
                   <div class="swiper-wrapper" id="swiper-wrapper-e0e102f910ff10ea87c" aria-live="polite">
                     <div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="1 / 5" style="width: 467px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                      <div class="image-zoom" data-scale="2.5" data-image="resource/categoria1.png"><img src="resource/categoria1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;resource/categoria1.png&quot;); transform: scale(1); transform-origin: 82.3519% 86.5445%;"></div></div>
+                      <div class="image-zoom" data-scale="2.5" data-image="static/resource/categoria1.png"><img src="static/resource/categoria1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;static/resource/categoria1.png&quot;); transform: scale(1); transform-origin: 82.3519% 86.5445%;"></div></div>
                     </div>
                     <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5" style="width: 467px; opacity: 0; transform: translate3d(-467px, 0px, 0px);">
-                      <div class="image-zoom" data-scale="2.5" data-image="resource/vendidos1.png"><img src="resource/vendidos1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;resource/vendidos1.png&quot;);"></div></div>
+                      <div class="image-zoom" data-scale="2.5" data-image="static/resource/vendidos1.png"><img src="static/resource/vendidos1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;static/resource/vendidos1.png&quot;);"></div></div>
                     </div>
                   </div>
                   <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
@@ -568,7 +570,7 @@
                     <div class="row g-4">
                       <div class="col-md-3">
                         <div class="image-holder">
-                          <img src="resource/review1.png" alt="review" class="rounded-circle img-fluid">
+                          <img src="static/resource/review1.png" alt="review" class="rounded-circle img-fluid">
                         </div>
                       </div>
                       <div class="col-md-7">
@@ -631,7 +633,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/categoria1.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/categoria1.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -651,7 +653,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/destaque3.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/destaque3.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -671,7 +673,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/destaque4.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/destaque4.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -691,7 +693,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/destaque5.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/destaque5.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -711,7 +713,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/destaque6.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/destaque6.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -731,7 +733,7 @@
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
                   <a href="product_details.html">
-                    <img src="resource/destaque7.png" alt="product" class="product-image img-fluid">
+                    <img src="static/resource/destaque7.png" alt="product" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -759,7 +761,7 @@
       </div>
     </section>
 
-  <section class="newsletter bg-light" style="background: url(resource/pattern-bg.png) no-repeat;">
+  <section class="newsletter bg-light" style="background: url(static/resource/pattern-bg.png) no-repeat;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 py-5 my-5">
@@ -782,7 +784,7 @@
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
               <a href="home_ecommerce.html">
-                <img src="resource/logo.png" alt="logo">
+                <img src="static/resource/logo.png" alt="logo">
               </a>
             </div>
             <p>Feito à mão com amor e propósito. A Ana Souza acredita na beleza da arte sustentável e na elegância de cada detalhe. 
@@ -892,9 +894,9 @@
           <div class="col-md-6 d-flex flex-wrap">
             <div class="payment-option">
               <span>Opções de pagamento:</span>
-              <img src="resource/visa-card.png" alt="card">
-              <img src="resource/paypal-card.png" alt="card">
-              <img src="resource/master-card.png" alt="card">
+              <img src="static/resource/visa-card.png" alt="card">
+              <img src="static/resource/paypal-card.png" alt="card">
+              <img src="static/resource/master-card.png" alt="card">
             </div>
           </div>
           <div class="col-md-6 text-end">
@@ -904,14 +906,15 @@
       </div>
     </div>
   </footer>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/SmoothScroll.js"></script>
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/SmoothScroll.js') }}"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="js/script.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.min.js') }}"></script>
   <div vw class="enabled">
         <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -920,7 +923,9 @@
     </div>
 </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script src="js/acessibilidade.js"></script>
+  <script src="{{ url_for('static', filename='js/acessibilidade.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </body>
 
 </html>
