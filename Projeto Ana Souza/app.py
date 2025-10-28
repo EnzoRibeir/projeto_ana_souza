@@ -245,7 +245,9 @@ def user_info():
     if not user:
         return redirect(url_for('login'))
     
-    return render_template('user_info.html', user=user)
+    pedidos = Pedido.query.filter_by(usuario_id=user.id).order_by(Pedido.data.desc()).all()
+    
+    return render_template('user_info.html', user=user, pedidos=pedidos)
 
 @app.route("/edit_profile", methods=["GET", "POST"])
 def edit_profile():
@@ -256,6 +258,28 @@ def edit_profile():
 def edit_address():
     # código para editar endereço
     return "Editar endereço"
+
+@app.route('/order/<int:id>')
+def order_details(id):
+    # Verifica se o usuário está logado
+    user_email = session.get('usuario')
+    if not user_email:
+        return redirect(url_for('login'))
+
+    # Busca o usuário no banco
+    user = Usuario.query.filter_by(email=user_email).first()
+    if not user:
+        return redirect(url_for('login'))
+
+    # Busca o pedido pelo ID
+    pedido = Pedido.query.filter_by(id=id, usuario_id=user.id).first()
+    if not pedido:
+        return "Pedido não encontrado ou você não tem permissão para ver este pedido.", 404
+
+    # Busca os produtos do pedido
+    produtos_pedido = PedidoProduto.query.filter_by(pedido_id=pedido.id).all()
+
+    return render_template('order_details.html', pedido=pedido, produtos_pedido=produtos_pedido)
 
 
 # ----------------- INICIALIZAR BANCO -----------------
