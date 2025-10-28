@@ -171,10 +171,10 @@
 
       <ul class="cat-list">
         <li class="cat-list-item">
-          <a href="all_products.html" title="Bolsas">Bolsas</a>
+          <a href="{{ url_for('all_products') }}" title="Bolsas">Bolsas</a>
         </li>
         <li class="cat-list-item">
-          <a href="all_products.html" title="Acessórios">Acessórios</a>
+          <a href="{{ url_for('all_products') }}" title="Acessórios">Acessórios</a>
         </li>
       </ul>
 
@@ -219,7 +219,7 @@
           </li>
         </ul>
 
-        <a class="w-100 btn btn-primary btn-lg" href="cart.html">Continue para o pagamento</a>
+        <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continue para o pagamento</a>
       </div>
     </div>
   </div>
@@ -229,7 +229,7 @@
       <div class="row justify-content-between align-items-center w-100">
 
         <div class="col-auto">
-          <a class="navbar-brand text-white" href="home_ecommerce.html">
+          <a class="navbar-brand text-white" href="{{ url_for('home') }}">
             <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
           </a>
         </div>
@@ -251,28 +251,28 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="home_ecommerce.html">Home</a>
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Produtos</a>
                   <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Bolsas</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Bolsas</a>
                     </li>
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Acessórios</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Acessórios</a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
+                  <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contato</a>
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contato</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../lading page/index.html">Sobre</a>
+                  <a class="nav-link" href="{{ url_for('lading_page') }}">Sobre</a>
                 </li>
               </ul>
             </div>
@@ -286,7 +286,7 @@
               </a>
             </li>
             <li class="d-none d-lg-block">
-              <a href="cart.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="{{ url_for('cart') }}" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">Carrinho <span class="cart-count">(0)</span>
               </a>
             </li>
@@ -305,7 +305,7 @@
               </a>
             </li>
             <li class="d-lg-none">
-              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="{{ url_for('cart') }}" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#cart"></use>
@@ -348,7 +348,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Inverno</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Inverno</a>
                   </h5>
                   <p>Modelos sofisticados com tons terrosos e acabamento artesanal.</p>
                   <div class="btn-left">
@@ -366,7 +366,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Verão</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Verão</a>
                   </h5>
                   <p>Bolsas leves, coloridas e perfeitas para os dias ensolarados.</p>
                   <div class="btn-left">
@@ -384,7 +384,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Clássicos</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Clássicos</a>
                   </h5>
                   <p>Peças atemporais, ideais para qualquer estação.</p>
                   <div class="btn-left">
@@ -402,7 +402,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Primavera</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Primavera</a>
                   </h5>
                   <p>Celebre a estação das flores com cores suaves, texturas leves e o charme artesanal.</p>
                   <div class="btn-left">
@@ -420,7 +420,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Festa</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Festa</a>
                   </h5>
                   <p>A Coleção Festa combina glamour e delicadeza.</p>
                   <div class="btn-left">
@@ -438,7 +438,7 @@
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="home_ecommerce.html" class="item-anchor">Coleção Natureza</a>
+                    <a href="{{ url_for('home') }}" class="item-anchor">Coleção Natureza</a>
                   </h5>
                   <p>A Coleção Natureza traz bolsas e acessórios que celebram a beleza do mundo natural. </p>
                   <div class="btn-left">
@@ -510,13 +510,13 @@
           <div class="col-md-4">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
-                <a href="home_ecommerce.html">
+                <a href="{{ url_for('home') }}">
                   <img src="static/resource/categoria1.png" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
               <div class="category-content">
                 <div class="product-button">
-                  <a href="home_ecommerce.html" class="btn btn-common text-uppercase">Acessórios</a>
+                  <a href="{{ url_for('home') }}" class="btn btn-common text-uppercase">Acessórios</a>
                 </div>
               </div>
             </div>
@@ -524,13 +524,13 @@
           <div class="col-md-4">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
-                <a href="home_ecommerce.html">
+                <a href="{{ url_for('home') }}">
                   <img src="static/resource/categoria2.png" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
               <div class="category-content">
                 <div class="product-button">
-                  <a href="home_ecommerce.html" class="btn btn-common text-uppercase">Bolsas</a>
+                  <a href="{{ url_for('home') }}" class="btn btn-common text-uppercase">Bolsas</a>
                 </div>
               </div>
             </div>
@@ -538,13 +538,13 @@
           <div class="col-md-4">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
-                <a href="all_products.html">
+                <a href="{{ url_for('all_products') }}">
                   <img src="static/resource/categoria3.png" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
               <div class="category-content">
                 <div class="product-button">
-                  <a href="all_products.html" class="btn btn-common text-uppercase">Todos os Produtos</a>
+                  <a href="{{ url_for('all_products') }}" class="btn btn-common text-uppercase">Todos os Produtos</a>
                 </div>
               </div>
             </div>
@@ -558,7 +558,7 @@
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Novidades</h4>
-        <a href="all_products.html" class="btn-link">Veja todos os produtos</a>
+        <a href="{{ url_for('all_products') }}" class="btn-link">Veja todos os produtos</a>
       </div>
       <div class="swiper product-swiper open-up" data-aos="zoom-out">
         <div class="swiper-wrapper d-flex">
@@ -704,7 +704,7 @@
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Itens mais vendidos</h4>
-        <a href="all_products.html" class="btn-link">Veja Todos os Produtos</a>
+        <a href="{{ url_for('all_products') }}" class="btn-link">Veja Todos os Produtos</a>
       </div>
       <div class="swiper product-swiper open-up" data-aos="zoom-out">
         <div class="swiper-wrapper d-flex">
@@ -891,7 +891,7 @@
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Você também pode gostar</h4>
-        <a href="all_products.html" class="btn-link">Veja todos os produtos</a>
+        <a href="{{ url_for('all_products') }}" class="btn-link">Veja todos os produtos</a>
       </div>
       <div class="swiper product-swiper open-up" data-aos="zoom-out">
         <div class="swiper-wrapper d-flex">
@@ -1011,13 +1011,13 @@
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Leia postagens do nosso blog</h4>
-        <a href="blog.html" class="btn-link">Veja todos</a>
+        <a href="{{ url_for('blog') }}" class="btn-link">Veja todos</a>
       </div>
       <div class="row">
         <div class="col-md-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="post_blog.html">
+              <a href="post_{{ url_for('blog') }}">
                 <img src="static/resource/blog1.png" alt="image" class="post-grid-image img-fluid">
               </a>
             </div>
@@ -1027,7 +1027,7 @@
                 <span class="meta-day"> 25 jul, 2025</span>
               </div>
               <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Brincos que Respeitam o Planeta</a>
+                <a href="post_{{ url_for('blog') }}">Brincos que Respeitam o Planeta</a>
               </h5>
               <p>A beleza dos acessórios artesanais sustentáveis: moda consciente para todos os estilos.</p>
             </div>
@@ -1036,7 +1036,7 @@
         <div class="col-md-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="post_blog.html">
+              <a href="post_{{ url_for('blog') }}">
                 <img src="static/resource/blog2.png" alt="image" class="post-grid-image img-fluid">
               </a>
             </div>
@@ -1046,7 +1046,7 @@
                 <span class="meta-day"> 10 jun, 2025</span>
               </div>
               <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Headpieces Sustentáveis: Brilhe com Consciência</a>
+                <a href="post_{{ url_for('blog') }}">Headpieces Sustentáveis: Brilhe com Consciência</a>
               </h5>
               <p>Acessórios artesanais que transformam qualquer look em uma declaração de estilo e respeito ao meio ambiente.</p>
             </div>
@@ -1055,7 +1055,7 @@
         <div class="col-md-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="post_blog.html">
+              <a href="post_{{ url_for('blog') }}">
                 <img src="static/resource/blog3.png" alt="image" class="post-grid-image img-fluid">
               </a>
             </div>
@@ -1065,7 +1065,7 @@
                 <span class="meta-day"> 10 out, 2025</span>
               </div>
               <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Bolsas que Contam Histórias</a>
+                <a href="post_{{ url_for('blog') }}">Bolsas que Contam Histórias</a>
               </h5>
               <p>Cada peça é única, feita à mão e pensada para mulheres que valorizam estilo e responsabilidade ambiental.</p>
             </div>
@@ -1147,7 +1147,7 @@
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
-              <a href="home_ecommerce.html">
+              <a href="{{ url_for('home') }}">
                 <img src="static/resource/logo.png" alt="logo">
               </a>
             </div>
@@ -1199,16 +1199,16 @@
             <h5 class="widget-title text-uppercase mb-4">Atalhos rápidos</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
-                <a href="home_ecommerce.html" class="item-anchor">Home</a>
+                <a href="{{ url_for('home') }}" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="all_products.html" class="item-anchor">Produtos</a>
+                <a href="{{ url_for('all_products') }}" class="item-anchor">Produtos</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Blog</a>
+                <a href="{{ url_for('blog') }}" class="item-anchor">Blog</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Contato</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Contato</a>
               </li>
               <li class="menu-item">
                 <a href="/Projeto Ana Souza/lading page/index.html" class="item-anchor">Sobre</a>
@@ -1230,10 +1230,10 @@
                 <a href="#" class="item-anchor">Envio + Entrega</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Contate-nos</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Contate-nos</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Encontre-nos facilmente</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Encontre-nos facilmente</a>
               </li>
               <li class="menu-item">
                 <a href="#" class="item-anchor">Perguntas Frequentes</a>

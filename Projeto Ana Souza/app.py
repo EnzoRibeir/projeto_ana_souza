@@ -21,6 +21,10 @@ class Usuario(db.Model):
 
 # ----------------- ROTAS -----------------
 @app.route("/")
+def bio():
+    return render_template("tela_link_bio/tela_link_bio.html")
+
+@app.route("/home")
 def home():
     return render_template("home_ecommerce.html")
 

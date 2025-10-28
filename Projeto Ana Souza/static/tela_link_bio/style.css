@@ -39,7 +39,7 @@ li {
         text-align: center;
         justify-content: center;
         height: 100vh;
-        background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+        background-image: url('../tela_link_bio/resource/img_fundo_projeto_ana_souza.jpeg');
         background-size: cover;
         background-position: center center; 
     }
@@ -115,7 +115,7 @@ li {
         text-align: center;
         justify-content: center;
         height: 100vh;
-        background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+        background-image: url('../tela_link_bio/resource/img_fundo_projeto_ana_souza.jpeg');
         background-size: cover;
         background-position: center center; 
     }
@@ -202,7 +202,7 @@ li {
     text-align: center;
     justify-content: center;
     max-height: 100vh;
-    background-image: url('resource/img_fundo_projeto_ana_souza.jpeg');
+    background-image: url('../tela_link_bio/resource/img_fundo_projeto_ana_souza.jpeg');
     background-size: cover;
     background-position:top; 
     background-repeat: no-repeat; 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tela_link_bio/style.css') }}">
     <title>Ana Souza</title>
 </head>
 <body>
@@ -45,13 +45,13 @@
         <div class="div_opcoes">
             <ul class="lista_opcoes">
                 <li>
-                    <a href="../lading page/index.html" class="link-botao">
+                    <a href="{{ url_for('lading_page') }}" class="link-botao">
                         Comece por aqui
                     </a>
                 </li>
 
                 <li>
-                    <a href="../Ecommerce_AnaSouza/home_ecommerce.html" class="link-botao">Visite nosso ecommerce</a>
+                    <a href="{{ url_for('home') }}" class="link-botao">Visite nosso ecommerce</a>
                
                 </li>
 
