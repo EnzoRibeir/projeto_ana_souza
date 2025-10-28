@@ -170,7 +170,7 @@
 
       <ul class="cat-list">
         <li class="cat-list-item">
-          <a href="all_products.html" title="Bolsas">Bolsas</a>
+          <a href="{{ url_for('all_products') }}" title="Bolsas">Bolsas</a>
         </li>
         <li class="cat-list-item">
           <a href="#" title="Acessórios">Acessórios</a>
@@ -218,7 +218,7 @@
           </li>
         </ul>
 
-        <a class="w-100 btn btn-primary btn-lg" href="cart.html">Continue para o pagamento</a>
+        <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continue para o pagamento</a>
       </div>
     </div>
   </div>
@@ -228,7 +228,7 @@
       <div class="row justify-content-between align-items-center w-100">
 
         <div class="col-auto">
-          <a class="navbar-brand text-white" href="home_ecommerce.html">
+          <a class="navbar-brand text-white" href="{{ url_for('home') }}">
             <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
           </a>
         </div>
@@ -250,25 +250,25 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="home_ecommerce.html">Home</a>
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Produtos</a>
                   <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Bolsas</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Bolsas</a>
                     </li>
                     <li>
-                      <a href="all_products.html" class="dropdown-item item-anchor">Acessórios</a>
+                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Acessórios</a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
+                  <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contato</a>
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contato</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../lading page/index.html">Sobre</a>
@@ -285,12 +285,12 @@
               </a>
             </li>
             <li class="d-none d-lg-block">
-              <a href="cart.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="{{ url_for('cart') }}" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">Carrinho <span class="cart-count">(0)</span>
               </a>
             </li>
             <li>
-              <a href="login.html" class="mx-2">
+              <a href="{{ url_for('login') }}" class="mx-2">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#user"></use>
                 </svg>
@@ -304,7 +304,7 @@
               </a>
             </li>
             <li class="d-lg-none">
-              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="{{ url_for('cart') }}" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#cart"></use>
@@ -331,7 +331,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="page-title pb-2">Checkout</h1>
         <nav class="breadcrumb fs-6">
-          <a class="breadcrumb-item nav-link" href="home_ecommerce.html">Home</a>
+          <a class="breadcrumb-item nav-link" href="{{ url_for('home') }}">Home</a>
           <span class="breadcrumb-item active" aria-current="page">Checkout</span>
         </nav>
       </div>
@@ -517,7 +517,7 @@
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
-              <a href="home_ecommerce.html">
+              <a href="{{ url_for('home') }}">
                 <img src="static/resource/logo.png" alt="logo">
               </a>
             </div>
@@ -569,16 +569,16 @@
             <h5 class="widget-title text-uppercase mb-4">Atalhos rápidos</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
-                <a href="home_ecommerce.html" class="item-anchor">Home</a>
+                <a href="{{ url_for('home') }}" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="all_products.html" class="item-anchor">Produtos</a>
+                <a href="{{ url_for('all_products') }}" class="item-anchor">Produtos</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Blog</a>
+                <a href="{{ url_for('blog') }}" class="item-anchor">Blog</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Contato</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Contato</a>
               </li>
               <li class="menu-item">
                 <a href="/Projeto Ana Souza/lading page/index.html" class="item-anchor">Sobre</a>
@@ -600,10 +600,10 @@
                 <a href="#" class="item-anchor">Envio + Entrega</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Contate-nos</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Contate-nos</a>
               </li>
               <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Encontre-nos facilmente</a>
+                <a href="{{ url_for('contact') }}" class="item-anchor">Encontre-nos facilmente</a>
               </li>
               <li class="menu-item">
                 <a href="#" class="item-anchor">Perguntas Frequentes</a>

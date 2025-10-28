@@ -82,6 +82,10 @@ def logout():
     session.pop("usuario", None)
     return redirect(url_for("login"))
 
+@app.route("/esqueceu a senha")
+def forgot_password():
+    return render_template("forgot_password.html")
+
 @app.route("/todos_produtos")
 def all_products():    
     lista_produtos = Produto.query.all()  # pega todos os produtos
