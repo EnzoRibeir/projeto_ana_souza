@@ -230,7 +230,7 @@
 
         <div class="col-auto">
           <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-            <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
+            <img src="{{ url_for('static', filename='resource/logo') }}" alt="Logo da empresa" width="200" height="45">
           </a>
         </div>
 
@@ -360,10 +360,10 @@
                 <div class="swiper product-large-slider swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
                   <div class="swiper-wrapper" id="swiper-wrapper-e0e102f910ff10ea87c" aria-live="polite">
                     <div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="1 / 5" style="width: 467px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                      <div class="image-zoom" data-scale="2.5" data-image="static/resource/categoria1.png"><img src="static/resource/categoria1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;static/resource/categoria1.png&quot;); transform: scale(1); transform-origin: 82.3519% 86.5445%;"></div></div>
+                      <div class="image-zoom" data-scale="2.5" data-image="{{ url_for('static', filename=produto.imagem) }}"><img src="{{ url_for('static', filename=produto.imagem) }}" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;{{ url_for('static', filename=produto.imagem) }}&quot;); transform: scale(1); transform-origin: 82.3519% 86.5445%;"></div></div>
                     </div>
                     <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5" style="width: 467px; opacity: 0; transform: translate3d(-467px, 0px, 0px);">
-                      <div class="image-zoom" data-scale="2.5" data-image="static/resource/vendidos1.png"><img src="static/resource/vendidos1.png" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;static/resource/vendidos1.png&quot;);"></div></div>
+                      <div class="image-zoom" data-scale="2.5" data-image="{{ url_for('static', filename=produto.imagem) }}"><img src="{{ url_for('static', filename=produto.imagem) }}" alt="product-large" class="img-fluid"><div class="photo" style="background-image: url(&quot;{{ url_for('static', filename=produto.imagem) }}&quot;);"></div></div>
                     </div>
                   </div>
                   <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
@@ -375,7 +375,7 @@
           <div class="col-md-5">
             <div class="product-info">
               <div class="element-header">
-                <h2 itemprop="name" class="product-title text-uppercase">Chapéu Lea Vinho</h2>
+                <h2 itemprop="name" class="product-title text-uppercase">{{ produto.nome }}</h2>
                 <div class="rating-container d-flex align-items-center">
                   <div class="rating" data-rating="1" onclick="rate(1)">
                     <svg width="32" height="32">
@@ -406,14 +406,12 @@
                 </div>
               </div>
               <div class="product-price">
-                <span class="fs-2">R$379,99</span>
-                <del>R$799,99</del>
+                <span class="fs-2">R$ {{ "%.2f"|format(produto.preco) }}</span>
+                <del>R$ {{ "%.2f"|format(produto.preco) }}</del>
               </div>
               <br>
                 <p>
-                  O Chapéu Lea Vinho é a união perfeita entre arte e consciência. Feito à mão por Ana Souza, ele utiliza fibras naturais de origem sustentável, garantindo durabilidade e respeito ao planeta.
-                  A cor Vinho Profundo é elegante e versátil, adicionando um toque de sofisticação e mistério ao seu estilo. Ao escolher o Lea, você leva uma peça exclusiva, carregando consigo a história do artesanato e o valor de uma escolha ética.
-                  Detalhes-chave:
+                  {{ produto.descricao }}
                 </p>
               <div class="color-product-options mt-4">
                 <div class="color-toggle" data-option-index="0">
@@ -431,7 +429,7 @@
                 </div>
               </div>
               <div class="product-action mt-4">
-                <div class="item-title">34 no estoque</div>
+                <div class="item-title">{{ produto.quantidade_estoque }} no estoque</div>
                 <div class="product-quantity d-flex flex-wrap">
                   <div class="input-group product-qty me-3" style="max-width: 150px;">
                     <span class="input-group-btn">
@@ -462,7 +460,7 @@
                     <div class="cate-tag d-flex mb-3">
                       <div>Categoria: </div>
                       <div class="tag-item d-flex">
-                        <a href="#"> Mulher</a>, <a href="#"> Bolsas</a>
+                        <a href="#"> Mulher</a>
                       </div>
                     </div>
                     <div class="social-links d-flex align-items-center gap-2 mb-3">
@@ -530,19 +528,8 @@
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <h5>Descrição do produto</h5>
                 <p>
-                  O Chapéu Lea Vinho é a união perfeita entre arte e consciência. Feito à mão por Ana Souza, ele utiliza fibras naturais de origem sustentável, garantindo durabilidade e respeito ao planeta.
-                  A cor Vinho Profundo é elegante e versátil, adicionando um toque de sofisticação e mistério ao seu estilo. Ao escolher o Lea, você leva uma peça exclusiva, carregando consigo a história do artesanato e o valor de uma escolha ética.
-                  Detalhes-chave:
+                  {{ produto.descricao }}
                 </p>
-                <p>
-                  Detalhes-chave:
-                </p>
-                <ul>
-                  <li>100% Artesanal: Peça única com acabamento exclusivo.</li>
-                  <li>Sustentável: Produzido com fibras naturais e éticas..</li>
-                  <li>Cor: Vinho elegante e atemporal.</li>
-                  <li>Para quem busca: Estilo e consciência em um só acessório.</li>
-                </ul> 
               </div>
               <div class="tab-pane fade" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
                 <h5>A Arte Pede Cuidado: Informações Adicionais e Manutenção</h5>
@@ -628,32 +615,12 @@
         </div>
         <div class="swiper product-swiper overflow-hidden swiper-initialized swiper-horizontal swiper-backface-hidden">
           <div class="swiper-wrapper d-flex" id="swiper-wrapper-da6749310310993952" aria-live="polite">
-           
-            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 7" style="width: 365.333px; margin-right: 10px;">
-              <div class="product-item image-zoom-effect link-effect">
-                <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/categoria1.png" alt="product" class="product-image img-fluid">
-                  </a>
-                  <a href="wish_list.html" class="btn-icon btn-wishlist">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#heart"></use>
-                    </svg>
-                  </a>
-                  <div class="product-content">
-                    <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Chapéu lea vinho</a>
-                    </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$155.00</span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {% for p in produtos %}
             <div class="swiper-slide" role="group" aria-label="3 / 7" style="width: 365.333px; margin-right: 10px;">
               <div class="product-item image-zoom-effect link-effect">
                 <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/destaque3.png" alt="product" class="product-image img-fluid">
+                  <a href="{{ url_for('produto_detalhes', id=p.id) }}">
+                    <img src="{{ url_for('static', filename=p.imagem) }}" alt="{{ p.nome }}" class="product-image img-fluid">
                   </a>
                   <a href="wish_list.html" class="btn-icon btn-wishlist">
                     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -662,93 +629,16 @@
                   </a>
                   <div class="product-content">
                     <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Cotton off-white shirt</a>
+                      <a href="{{ url_for('produto_detalhes', id=p.id) }}">{{ p.nome }}</a>
                     </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$350.00</span></a>
+                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho">
+                      <span>R$350.00</span>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide" role="group" aria-label="4 / 7" style="width: 365.333px; margin-right: 10px;">
-              <div class="product-item image-zoom-effect link-effect">
-                <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/destaque4.png" alt="product" class="product-image img-fluid">
-                  </a>
-                  <a href="wish_list.html" class="btn-icon btn-wishlist">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#heart"></use>
-                    </svg>
-                  </a>
-                  <div class="product-content">
-                    <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Handmade crop sweater</a>
-                    </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$250.00</span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide" role="group" aria-label="5 / 7" style="width: 365.333px; margin-right: 10px;">
-              <div class="product-item image-zoom-effect link-effect">
-                <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/destaque5.png" alt="product" class="product-image img-fluid">
-                  </a>
-                  <a href="wish_list.html" class="btn-icon btn-wishlist">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#heart"></use>
-                    </svg>
-                  </a>
-                  <div class="product-content">
-                    <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Handmade crop sweater</a>
-                    </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$370.00</span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide" role="group" aria-label="6 / 7" style="width: 365.333px; margin-right: 10px;">
-              <div class="product-item image-zoom-effect link-effect">
-                <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/destaque6.png" alt="product" class="product-image img-fluid">
-                  </a>
-                  <a href="wish_list.html" class="btn-icon btn-wishlist">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#heart"></use>
-                    </svg>
-                  </a>
-                  <div class="product-content">
-                    <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Handmade crop sweater</a>
-                    </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$500.00</span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide" role="group" aria-label="7 / 7" style="width: 365.333px; margin-right: 10px;">
-              <div class="product-item image-zoom-effect link-effect">
-                <div class="image-holder">
-                  <a href="product_details.html">
-                    <img src="static/resource/destaque7.png" alt="product" class="product-image img-fluid">
-                  </a>
-                  <a href="wish_list.html" class="btn-icon btn-wishlist">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#heart"></use>
-                    </svg>
-                  </a>
-                  <div class="product-content">
-                    <h5 class="text-uppercase fs-5 mt-3">
-                      <a href="product_details.html">Handmade crop sweater</a>
-                    </h5>
-                    <a href="{{ url_for('cart') }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$295.00</span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
@@ -894,9 +784,9 @@
           <div class="col-md-6 d-flex flex-wrap">
             <div class="payment-option">
               <span>Opções de pagamento:</span>
-              <img src="static/resource/visa-card.png" alt="card">
-              <img src="static/resource/paypal-card.png" alt="card">
-              <img src="static/resource/master-card.png" alt="card">
+                <img src="{{ url_for('static', filename='resource/visa-card.png') }}" alt="card">
+                <img src="{{ url_for('static', filename='resource/paypal-card.png') }}" alt="card">
+                <img src="{{ url_for('static', filename='resource/master-card.png') }}" alt="card">
             </div>
           </div>
           <div class="col-md-6 text-end">

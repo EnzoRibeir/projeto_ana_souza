@@ -93,9 +93,12 @@ def all_products():
     return render_template("all_products.html", produtos=lista_produtos)
 
 
-@app.route("/produto/<int:produto_id>")
-def product_details(produto_id):
-    return render_template("product_details.html", produto_id=produto_id)
+@app.route('/produto/<int:id>')
+def produto_detalhes(id):
+    produto = Produto.query.get_or_404(id)
+    lista_produtos = Produto.query.all()
+    return render_template('product_details.html', produto=produto, produtos=lista_produtos)
+
 
 @app.route("/carrinho")
 def cart():

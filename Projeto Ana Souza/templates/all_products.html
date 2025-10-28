@@ -361,7 +361,7 @@
             {% for p in produtos %}
             <div class="col-md-4 mb-3 product-item link-effect">
               <div class="image-holder position-relative">
-                <a href="#">
+                <a href="{{ url_for('produto_detalhes', id=p.id) }}">
                   <img src="{{ url_for('static', filename=p.imagem) }}" alt="categorias" class="product-image img-fluid">
                 </a>
                 <a href="wish_list.html" class="btn-icon btn-wishlist">
@@ -371,9 +371,19 @@
                 </a>
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
-                    <a href="#"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">{{ p.nome }}</span></span></a>
+                    <a href="{{ url_for('produto_detalhes', id=p.id) }}">
+                      <span style="vertical-align: inherit;">
+                        <span style="vertical-align: inherit;">{{ p.nome }}</span>
+                      </span>
+                    </a>
                   </h5>
-                  <a href="#" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ {{ "%.2f"|format(p.preco) }}</span></span></span></a>
+                  <a href="{{ url_for('produto_detalhes', id=p.id) }}" class="text-decoration-none" data-after="Adicione ao carrinho">
+                    <span>
+                      <span style="vertical-align: inherit;">
+                        <span style="vertical-align: inherit;">R$ {{ "%0.2f"|format(p.preco) }}</span>
+                      </span>
+                    </span>
+                  </a>
                 </div>
               </div>
             </div>
