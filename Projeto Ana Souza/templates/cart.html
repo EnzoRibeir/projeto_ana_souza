@@ -223,108 +223,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
-    <div class="container-fluid">
-      <div class="row justify-content-between align-items-center w-100">
-
-        <div class="col-auto">
-          <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-            <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
-          </a>
-        </div>
-
-        <div class="col-auto">
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-            </div>
-
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Produtos</a>
-                  <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
-                    <li>
-                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Bolsas</a>
-                    </li>
-                    <li>
-                      <a href="{{ url_for('all_products') }}" class="dropdown-item item-anchor">Acessórios</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('contact') }}">Contato</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('lading_page') }}">Sobre</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-3 col-lg-auto">
-          <ul class="list-unstyled d-flex m-0">
-            <li class="d-none d-lg-block">
-              <a href="wish_list.html" class="text-uppercase mx-3">Lista de desejos <span class="wishlist-count">(0)</span>
-              </a>
-            </li>
-            <li class="d-none d-lg-block">
-              <a href="{{ url_for('cart') }}" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">Carrinho <span class="cart-count">(0)</span>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url_for('login') }}" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlink:href="#user"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="d-lg-none">
-              <a href="wish_list.html" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlink:href="#heart"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="d-lg-none">
-              <a href="{{ url_for('cart') }}" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlink:href="#cart"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="search-box" class="mx-2">
-              <a href="#search" class="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlink:href="#search"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  </nav>
+  {% include 'navbar.html' %}
 
   <section class="py-5">
     <div class="container">
@@ -350,22 +249,23 @@
                 <h6 class="cart-title text-uppercase text-muted col-lg-4 pb-3">Subtotal</h6>
               </div>
             </div>
+            {% for p in produtos_carrinho %}
             <div class="cart-item border-top border-bottom">
               <div class="row align-items-center"> 
                 <div class="col-lg-4 col-md-3">
                   <div class="cart-info d-flex flex-wrap align-items-center mb-4">
                     <div class="col-lg-5">
                       <div class="card-image">
-                        <img src="static/resource/vendidos1.png" alt="cloth" class="img-fluid">
+                        <img src="{{ url_for('static', filename=p.imagem) }}" alt="cloth" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-7">
                       <div class="card-detail ps-3">
                         <h5 class="card-title">
-                          <a href="product_details.html" class="text-decoration-none">Chapéu Lea Vinho</a>
+                          <a href="product_details.html" class="text-decoration-none">{{ p.nome }}</a>
                         </h5>
                         <div class="card-price">
-                          <span class="money text-dark" data-currency-usd="$1200.00">R$399,00</span>
+                          <span class="money text-dark" data-currency-usd="$1200.00">R$ {{ "%0.2f"|format(p.preco) }}</span>
                         </div>
                       </div>
                     </div>
@@ -374,15 +274,15 @@
                 <div class="col-lg-6 col-md-7">
                   <div class="row d-flex">
                     <div class="col-md-4">
-                      <div class="input-group product-qty">
+                      <div class="input-group product-qty" data-id="{{ p.id }}">
                         <span class="input-group-btn">
-                            <button type="button" class="quantity-left-minus btn btn-light btn-number" data-type="minus" data-field="">
+                            <button type="button" class="quantity-left-minus btn btn-light btn-number" data-type="minus" data-field="" data-id="{{ p.id }}">
                               <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
                             </button>
                         </span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+                        <input type="text" name="quantity" class="form-control input-number text-center" value="{{ p.quantidade }}" min="1" max="100" data-id="{{ p.id }}">
                         <span class="input-group-btn">
-                            <button type="button" class="quantity-right-plus btn btn-light btn-number" data-type="plus" data-field="">
+                            <button type="button" class="quantity-right-plus btn btn-light btn-number" data-type="plus" data-field="" data-id="{{ p.id }}">
                                 <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
                             </button>
                         </span>
@@ -390,14 +290,16 @@
                     </div>
                     <div class="col-md-8 text-center">
                       <div class="total-price">
-                        <span class="money text-dark">R$399,99</span>
+                        <span class="money text-dark" id="subtotal-{{ p.id }}">
+                          R$ {{ "%0.2f"|format(p.subtotal) }}
+                        </span>
                       </div>
                     </div>   
                   </div>             
                 </div>
                 <div class="col-lg-1 col-md-2">
                   <div class="cart-remove">
-                    <a href="#">
+                    <a href="{{ url_for('remover_do_carrinho', id=p.id) }}">
                       <svg width="32px">
                         <use xlink:href="#trash"></use>
                       </svg>
@@ -406,6 +308,7 @@
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
         </div>
         <div class="col-md-4">
@@ -417,9 +320,9 @@
                   <tr class="subtotal pt-2 pb-2 border-top border-bottom">
                     <th>Subtotal</th>
                     <td data-title="Subtotal">
-                      <span class="price-amount amount text-dark ps-5">
+                      <span class="price-amount amount text-dark ps-5" id="subtotal-geral">
                         <bdi>
-                          <span class="price-currency-symbol">$</span>2,370.00
+                          <span class="price-currency-symbol" id="subtotal-geral">R$</span>{{ "%0.2f"|format(total) }}
                         </bdi>
                       </span>
                     </td>
@@ -427,9 +330,9 @@
                   <tr class="order-total pt-2 pb-2 border-bottom">
                     <th>Total</th>
                     <td data-title="Total">
-                      <span class="price-amount amount text-dark ps-5">
+                      <span class="price-amount amount text-dark ps-5" id="total-geral">
                         <bdi>
-                          <span class="price-currency-symbol">$</span>2,370.00</bdi>
+                          <span class="price-currency-symbol" id="total-geral">R$</span>{{ "%0.2f"|format(total) }}</bdi>
                       </span>
                     </td>
                   </tr>
@@ -662,6 +565,7 @@
   <script src="{{ url_for('static', filename='js/acessibilidade.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="{{ url_for('static', filename='js/scripts_pontuais.js') }}"></script>
 </body>
 
 </html>

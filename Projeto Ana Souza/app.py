@@ -99,10 +99,80 @@ def produto_detalhes(id):
     lista_produtos = Produto.query.all()
     return render_template('product_details.html', produto=produto, produtos=lista_produtos)
 
+from flask import flash  # opcional, para mensagens
 
-@app.route("/carrinho")
+# ----------------- CARRINHO DE COMPRAS -----------------
+@app.route('/add_to_cart/<int:id>')
+def add_to_cart(id):
+    produto = Produto.query.get_or_404(id)
+    
+    # inicializa o carrinho se não existir
+    if 'carrinho' not in session:
+        session['carrinho'] = {}
+
+    carrinho = session['carrinho']
+
+    # adiciona ou incrementa a quantidade
+    if str(id) in carrinho:
+        carrinho[str(id)] += 1
+    else:
+        carrinho[str(id)] = 1
+
+    session['carrinho'] = carrinho  # salva de volta na sessão
+    flash(f'{produto.nome} adicionado ao carrinho!', 'success')
+    print(carrinho)
+    return redirect(request.referrer or url_for('todos_produtos'))
+
+@app.route('/carrinho')
 def cart():
-    return render_template("cart.html")
+    carrinho = session.get('carrinho', {})
+    produtos_carrinho = []
+
+    total = 0
+    for id_str, quantidade in carrinho.items():
+        produto = Produto.query.get(int(id_str))
+        if produto:
+            subtotal = produto.preco * quantidade
+            total += subtotal
+            produtos_carrinho.append({
+                'id': produto.id,
+                'nome': produto.nome,
+                'imagem': produto.imagem,
+                'preco': produto.preco,
+                'quantidade': quantidade,
+                'subtotal': subtotal
+            })
+
+    return render_template('cart.html', produtos_carrinho=produtos_carrinho, total=total)
+
+@app.route('/remover_do_carrinho/<int:id>')
+def remover_do_carrinho(id):
+    carrinho = session.get('carrinho', {})
+    carrinho.pop(str(id), None)
+    session['carrinho'] = carrinho
+    flash('Produto removido do carrinho!', 'info')
+    return redirect(url_for('cart'))
+
+@app.route('/update_cart/<int:id>/<int:quantidade>', methods=['POST'])
+def update_cart(id, quantidade):
+    if 'carrinho' not in session:
+        session['carrinho'] = {}
+
+    carrinho = session['carrinho']
+    if quantidade < 1:
+        # Remove do carrinho se quantidade for menor que 1
+        carrinho.pop(str(id), None)
+    else:
+        carrinho[str(id)] = quantidade
+    
+    session['carrinho'] = carrinho
+
+    # Calcula subtotal do produto e total do carrinho
+    produto = Produto.query.get_or_404(id)
+    subtotal = produto.preco * quantidade
+    total = sum(Produto.query.get(int(pid)).preco * q for pid, q in carrinho.items())
+
+    return {'subtotal': subtotal, 'total': total}
 
 @app.route("/blog")
 def blog():
