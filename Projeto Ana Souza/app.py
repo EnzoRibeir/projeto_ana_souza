@@ -68,6 +68,35 @@ def logout():
     session.pop("usuario", None)
     return redirect(url_for("login"))
 
+@app.route("/todos_produtos")
+def all_products():
+    return render_template("all_products.html")
+
+@app.route("/produto/<int:produto_id>")
+def product_details(produto_id):
+    return render_template("product_details.html", produto_id=produto_id)
+
+@app.route("/carrinho")
+def cart():
+    return render_template("cart.html")
+
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
+@app.route("/post_blog/<int:post_id>")
+def blog_post(post_id):
+    return render_template("blog_post.html", post_id=post_id)
+
+@app.route("/contato")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/sobre")
+def lading_page():
+    return render_template("lading_page/index.html")
+
+
 # ----------------- INICIALIZAR BANCO -----------------
 if __name__ == "__main__":
     with app.app_context():
