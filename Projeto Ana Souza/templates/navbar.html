@@ -4,7 +4,7 @@
 
         <div class="col-auto">
           <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-            <img src="static/resource/logo.png" alt="Logo da empresa" width="200" height="45">
+            <img src="{{ url_for('static', filename='resource/logo.png') }}" alt="Logo da empresa" width="200" height="45">
           </a>
         </div>
 
