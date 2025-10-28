@@ -81,7 +81,7 @@
                     <td>#{{ pedido.id }}</td>
                     <td>{{ pedido.data }}</td>
                     <td>{{ pedido.status }}</td>
-                    <td>R$ {{ pedido.total }}</td>
+                    <td> R$ {{ "%.2f"|format(pedido.total()) }}</td>
                     <td><a href="{{ url_for('order_details', id=pedido.id) }}" class="btn btn-sm btn-dark">Ver</a></td>
                   </tr>
                   {% else %}

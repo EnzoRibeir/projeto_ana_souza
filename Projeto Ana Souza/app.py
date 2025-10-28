@@ -185,6 +185,13 @@ def cart():
 
     return render_template('cart.html', produtos_carrinho=produtos_carrinho, total=total)
 
+@app.context_processor
+def inject_cart_count():
+    """Deixa a quantidade de itens no carrinho disponível em todos os templates"""
+    carrinho = session.get('carrinho', {})
+    cart_count = sum(carrinho.values())  # soma todas as quantidades
+    return dict(cart_count=cart_count)
+
 @app.route('/remover_do_carrinho/<int:id>')
 def remover_do_carrinho(id):
     carrinho = session.get('carrinho', {})
