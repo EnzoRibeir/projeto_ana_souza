@@ -29,6 +29,17 @@ class Produto(db.Model):
     cor = db.Column(db.String(50))
     imagem = db.Column(db.String(200))  # caminho da imagem na pasta static
 
+# ----------------- COLUNA DE POST DO BLOG -----------------
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(150), nullable=False)
+    subtitulo = db.Column(db.String(250))
+    conteudo = db.Column(db.Text, nullable=False)
+    autor = db.Column(db.String(100))
+    data_publicacao = db.Column(db.String(20))
+    imagem = db.Column(db.String(200))  # caminho da imagem na pasta static
+
+
 # ----------------- ROTAS -----------------
 @app.route("/")
 def bio():
@@ -176,11 +187,14 @@ def update_cart(id, quantidade):
 
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = Post.query.order_by(Post.id.desc()).all()  # lista todos, do mais recente ao mais antigo
+    return render_template("blog.html", posts=posts)
 
 @app.route("/post_blog/<int:post_id>")
 def blog_post(post_id):
-    return render_template("blog_post.html", post_id=post_id)
+    post = Post.query.get_or_404(post_id)
+    posts = Post.query.order_by(Post.id.desc()).all()
+    return render_template("post_blog.html", post=post, posts=posts)
 
 @app.route("/contato")
 def contact():

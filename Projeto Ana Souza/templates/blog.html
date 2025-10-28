@@ -347,109 +347,27 @@
       <div class="row">
         <main class="post-list post-card-small">
             <div class="row">
+               {% for post in posts %}
 
               <div class="col-md-4">
                 <article class="post-item pb-5">
                   <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog1.png" class="img-fluid" ="fashion"=""></a>
+                    <a href="{{ url_for('blog_post', post_id=post.id) }}"><img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="img-fluid" ="fashion"=""></a>
                   </div>
                   <div class="post-content">
                     <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">12 jan, 2022</span>
+                      <span class="post-category">Moda</span> / <span class="meta-date">{{ post.data_publicacao }}</span>
                     </div>
                     <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">How to look outstanding in pastel</a>
+                      <a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.titulo }}</a>
                     </h5>
-                    <p>Dignissim lacus, turpis ut suspendisse vel tellus. Turpis purus, gravida orci, fringilla...</p>
+                    <p>{{ post.subtitulo }}</p>
                   </div>
+                  {% else %}
+                    <p>Nenhum post encontrado.</p>
+                  {% endfor %}
                 </article>
               </div>
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog2.png" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">18 jan, 2022</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">Top 10 fashion trend for summer</a>
-                    </h5>
-                    <p>vel pretium suspendisse ultrices tempus vestibulum, nisl platea adipiscing ac ullamcorper...</p>
-                  </div>
-                </article>
-              </div>
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog3.png" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">10 Feb, 2022</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">Crazy fashion with unique moment</a>
-                    </h5>
-                    <p>Consequat suspendisse ultrices tempus vestibulum, nisl platea adipiscing ac ullamcorper...</p>
-                  </div>
-                </article>
-              </div>
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog1.png" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">05 March, 2022</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">Soft cotton onepiece dress for women</a>
-                    </h5>
-                    <p>Dignissim lacus, turpis ut suspendisse vel tellus. Turpis purus, gravida orci, fringilla...</p>
-                  </div>
-                </article>
-              </div>
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog2.png" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">28 March, 2022</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">Best accessories for 2022</a>
-                    </h5>
-                    <p>vel pretium suspendisse ultrices tempus vestibulum, nisl platea adipiscing ac ullamcorper...</p>
-                  </div>
-                </article>
-              </div>
-
-              <div class="col-md-4">
-                <article class="post-item pb-5">
-                  <div class="post-image">
-                    <a href="post_blog.html"><img src="static/resource/blog3.png" class="img-fluid" ="fashion"=""></a>
-                  </div>
-                  <div class="post-content">
-                    <div class="post-meta text-uppercase py-3">
-                      <span class="post-category">Fashion</span> / <span class="meta-date">04 April, 2022</span>
-                    </div>
-                    <h5 class="post-title text-uppercase">
-                      <a href="post_blog.html">Top 20 trending photography poses</a>
-                    </h5>
-                    <p>Consequat suspendisse ultrices tempus vestibulum, nisl platea adipiscing ac ullamcorper...</p>
-                  </div>
-                </article>
-              </div>
-            </div>
 
             <nav aria-label="Page navigation" class="d-flex justify-content-center mt-5">
               <ul class="pagination">

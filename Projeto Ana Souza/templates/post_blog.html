@@ -230,12 +230,12 @@
       <div class="container">
         <div class="row text-center">
           <div class="post-meta text-uppercase my-3">
-            <span class="post-category">Moda</span> / <span class="meta-date">25 Jul, 2025</span>
+            <span class="post-category">Moda</span> / <span class="meta-date">{{ post.data_publicacao }}</span>
           </div>
           <h1 class="post-title text-uppercase">
-            <a href="post_blog.html ">Brincos que Respeitam o Planeta</a>
+            <a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.titulo }}</a>
           </h1>
-          <p>A beleza dos acessórios artesanais sustentáveis: moda consciente para todos os estilos.</p>
+          <p>{{ post.subtitulo }}</p>
         </div>
       </div>
     </div>
@@ -248,22 +248,11 @@
           <div class="row">
             <article class="post-item">
               <div class="hero-image">
-                <img src="static/resource/blog1.png" alt="single-post" class="img-fluid">
+                <img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="img-fluid">
               </div>
               <div class="post-content py-5">
                 <div class="post-description">
-                  <p>A moda está passando por uma transformação — e os acessórios sustentáveis vêm ganhando cada vez mais espaço nesse novo cenário. 
-                    Entre eles, os brincos artesanais ecológicos se destacam por unir beleza, criatividade e responsabilidade ambiental. 
-                    Feitos com materiais reciclados, naturais ou reaproveitados, esses acessórios provam que é possível estar na moda sem prejudicar o planeta.</p>
-                  <p>Os artesãos sustentáveis buscam dar um novo propósito a elementos que seriam descartados, como madeira de reuso, tecidos naturais, sementes e metais reciclados. 
-                    Cada peça carrega uma história única, refletindo o cuidado com o meio ambiente e o talento de quem as cria. 
-                    O resultado são brincos leves, estilosos e cheios de personalidade — perfeitos para quem quer expressar sua individualidade com consciência.</p>
-                  <p>Além de reduzir o impacto ambiental, optar por acessórios sustentáveis é uma forma de valorizar o trabalho local e apoiar pequenas produções que respeitam 
-                    o tempo da natureza e das pessoas. É um movimento que vai além da estética: é um ato de amor pelo planeta e pela arte manual.</p>
-                  <p>Seja para compor um look casual ou sofisticado, os brincos ecológicos são versáteis e trazem um toque natural e elegante. 
-                    E o melhor? Eles combinam com todos os estilos — do minimalista ao boho, do moderno ao clássico — mostrando que a moda consciente é para todos.</p>
-                 
-                  <h6>Escolher acessórios sustentáveis é escolher um futuro mais bonito — para você e para o mundo.</h6>
+                  <p>{{ post.conteudo | safe }}</p>
                   </div>
                 </div>
               </div>
@@ -273,14 +262,14 @@
                 <div class="col-md-3">
                   <div class="image-holder">
                     <a itemprop="url" href="#">
-                      <img src="static/resource/AnaSouza.png" class="img-fluid" alt="author">
+                      <img src="{{ url_for('static', filename='resource/AnaSouza.png') }}" class="img-fluid" alt="author">
                     </a>
                   </div>
                 </div>
                 <div class="col-md-9">
                   <div class="post-author-content">
                     <div class="element-title text-uppercase">
-                      <a itemprop="url" href="">Ana Souza</a>
+                      <a itemprop="url" href="">{{ post.autor }}</a>
                     </div>
                     <span class="author-position">Artesã e empreendedora</span>
                     <p>Ana Souza é uma artesã talentosa que produz bolsas e acessórios feitos à mão, utilizando materiais sustentáveis e técnicas tradicionais de artesanato. 
@@ -301,7 +290,7 @@
                     <div class="comment-list">
                       <article class="comment-item pb-3 row">
                         <div class="col-md-2">
-                          <img src="static/resource/comentario1.png" alt="default" class="commentor-image rounded-circle">
+                          <img src="{{ url_for('static', filename='resource/comentario1.png') }}" alt="default" class="commentor-image rounded-circle">
                         </div>
                         <div class="col-md-10">
                           <div class="author-post">
@@ -309,7 +298,9 @@
                               <div class="author-name">Mariana Lopes</div>
                               <span class="meta-date">Jul 30</span>
                             </div>
-                            <p>Adorei o post! Tenho buscado consumir de forma mais consciente, e os brincos artesanais da Ana são exatamente o que eu procurava — lindos, leves e cheios de significado. É bom ver marcas que realmente se preocupam com o planeta!</p>
+                            <p>Adorei o post! Tenho buscado consumir de forma mais consciente, 
+                              e os brincos artesanais da Ana são exatamente o que eu procurava — lindos, leves e cheios de significado. 
+                              É bom ver marcas que realmente se preocupam com o planeta!</p>
                             <div class="comments-reply border-animation">
                               <a href="#">
                                 <i class="icon icon-mail-reply"></i>Responder </a>
@@ -319,7 +310,7 @@
                       </article>
                       <article class="comment-item pb-3 row child-comments">
                         <div class="col-md-2">
-                          <img src="static/resource/comentario2.png" alt="default" class="commentor-image rounded-circle">
+                          <img src="{{ url_for('static', filename='resource/comentario2.png') }}" alt="default" class="commentor-image rounded-circle">
                         </div>
                         <div class="col-md-10">
                           <div class="author-post">
@@ -338,7 +329,7 @@
                       </article>
                       <article class="comment-item pb-3 row">
                         <div class="col-md-2">
-                          <img src="static/resource/comentario3.png" alt="default" class="commentor-image rounded-circle">
+                          <img src="{{ url_for('static', filename='resource/comentario3.png') }}" alt="default" class="commentor-image rounded-circle">
                         </div>
                         <div class="col-md-10">
                           <div class="author-post">
@@ -398,55 +389,25 @@
         <h2 class="section-title text-uppercase">Publicações do Blog</h2>
       </div>
       <div class="row">
+        {% for post in posts %}
         <div class="col-md-4">
           <article class="post-item">
             <div class="post-image">
-              <a href="post_blog.html"><img src="static/resource/blog1.png" alt="image" class="post-grid-image img-fluid"></a>
+              <a href="{{ url_for('blog_post', post_id=post.id) }}"><img src="{{ url_for('static', filename=post.imagem) }}" alt="{{ post.titulo }}" class="post-grid-image img-fluid"></a>
             </div>
             <div class="post-content">
               <div class="post-meta text-uppercase">
                 <span class="post-category">Moda /</span>
-                <span class="meta-day"> 25 Jul, 2025</span>
+                <span class="meta-day">{{ post.data_publicacao }}</span>
               </div>
               <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Brincos que Respeitam o Planeta</a>
+                <a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.titulo }}</a>
               </h5>
-              <p>A beleza dos acessórios artesanais sustentáveis: moda consciente para todos os estilos.</p>
+              <p>{{ post.subtitulo }}</p>
             </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="post_blog.html"><img src="static/resource/blog2.png" alt="image" class="post-grid-image img-fluid"></a>
-            </div>
-            <div class="post-content">
-              <div class="post-meta text-uppercase">
-                <span class="post-category">Moda /</span>
-                <span class="meta-day"> 10 Jun, 2025</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Headpieces Sustentáveis: Brilhe com Consciência</a>
-              </h5>
-              <p>Acessórios artesanais que transformam qualquer look em uma declaração de estilo e respeito ao meio ambiente.</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="post_blog.html"><img src="static/resource/blog3.png" alt="image" class="post-grid-image img-fluid"></a>
-            </div>
-            <div class="post-content">
-              <div class="post-meta text-uppercase">
-                <span class="post-category">Moda /</span>
-                <span class="meta-day"> 10 Out, 2025</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="post_blog.html">Bolsas que Contam Histórias</a>
-              </h5>
-              <p>Cada peça é única, feita à mão e pensada para mulheres que valorizam estilo e responsabilidade ambiental.</p>
-            </div>
+            {% else %}
+              <p>Nenhum post encontrado.</p>
+            {% endfor %}
           </article>
         </div>
       </div>
@@ -454,7 +415,8 @@
   </section>
 
 
-  <section class="newsletter bg-light" style="background: url(static/resource/pattern-bg.png) no-repeat;">
+  <section class="newsletter bg-light" style="background: url('{{ url_for('static', filename='resource/pattern-bg.png') }}') no-repeat center center / cover;">
+    
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 py-5 my-5">
@@ -478,42 +440,42 @@
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest1.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest1.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest2.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest2.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest3.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest3.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest4.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest4.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest5.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest5.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="static/resource/pinterest6.png" alt="pinterest" class="insta-image img-fluid">
+            <img src="{{ url_for('static', filename='resource/pinterest6.png') }}" alt="pinterest" class="insta-image img-fluid">
           </a>
         </div>
       </div>
@@ -527,7 +489,7 @@
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
               <a href="{{ url_for('home') }}">
-                <img src="static/resource/logo.png" alt="logo">
+                <img src="{{ url_for('static', filename='resource/logo.png') }}" alt="logo">
               </a>
             </div>
             <p>Feito à mão com amor e propósito. A Ana Souza acredita na beleza da arte sustentável e na elegância de cada detalhe. 
@@ -637,9 +599,9 @@
           <div class="col-md-6 d-flex flex-wrap">
             <div class="payment-option">
               <span>Opções de pagamento:</span>
-              <img src="static/resource/visa-card.png" alt="card">
-              <img src="static/resource/paypal-card.png" alt="card">
-              <img src="static/resource/master-card.png" alt="card">
+              <img src="{{ url_for('static', filename='resource/visa-card.png') }}" alt="card">
+              <img src="{{ url_for('static', filename='resource/paypal-card.png') }}" alt="card">
+              <img src="{{ url_for('static', filename='resource/master-card.png') }}" alt="card">
             </div>
           </div>
           <div class="col-md-6 text-end">
