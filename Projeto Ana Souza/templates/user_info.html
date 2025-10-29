@@ -11,6 +11,48 @@
 </head>
 
 <body class="homepage">
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="MyCart">
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Seu carrinho</span>
+        <span class="badge bg-primary rounded-pill">{{ cart_count }}</span>
+      </h4>
+
+      {% if produtos_carrinho %}
+      <ul class="list-group mb-3">
+        {% for p in produtos_carrinho %}
+        <li class="list-group-item d-flex justify-content-between align-items-center lh-sm">
+          <div class="d-flex align-items-center">
+            <img src="{{ url_for('static', filename=p.imagem) }}" alt="{{ p.nome }}" width="50" class="me-3 rounded">
+            <div>
+              <h6 class="my-0">{{ p.nome }}</h6>
+              <small class="text-muted">Qtd: {{ p.quantidade }}</small>
+            </div>
+          </div>
+          <div class="text-end">
+            <span class="text-body-secondary">R$ {{ "%.2f"|format(p.subtotal) }}</span><br>
+            <a href="{{ url_for('remover_do_carrinho_nav', id=p.id) }}" class="text-danger small">remover</a>
+          </div>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span><strong>Total</strong></span>
+          <strong>R$ {{ "%.2f"|format(total) }}</strong>
+        </li>
+      </ul>
+
+      <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continuar para o pagamento</a>
+      {% else %}
+      <p class="text-center text-muted mt-5">Seu carrinho está vazio 🛒</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
   {% include 'navbar.html' %}
 
   <section class="hero-section bg-light py-4">

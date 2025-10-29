@@ -201,6 +201,16 @@ def remover_do_carrinho(id):
     flash('Produto removido do carrinho!', 'info')
     return redirect(url_for('cart'))
 
+@app.route('/remover_do_carrinho_nav/<int:id>')
+def remover_do_carrinho_nav(id):
+    carrinho = session.get('carrinho', {})
+    carrinho.pop(str(id), None)
+    session['carrinho'] = carrinho
+    flash('Produto removido do carrinho!', 'info')
+    referer = request.referrer or url_for('cart')
+    return redirect(referer)
+    
+
 @app.route('/update_cart/<int:id>/<int:quantidade>', methods=['POST'])
 def update_cart(id, quantidade):
     if 'carrinho' not in session:
@@ -221,6 +231,29 @@ def update_cart(id, quantidade):
     total = sum(Produto.query.get(int(pid)).preco * q for pid, q in carrinho.items())
 
     return {'subtotal': subtotal, 'total': total}
+
+@app.context_processor
+def inject_cart_data():
+    carrinho = session.get('carrinho', {})
+    produtos_carrinho = []
+    total = 0
+
+    for id_str, quantidade in carrinho.items():
+        produto = Produto.query.get(int(id_str))
+        if produto:
+            subtotal = produto.preco * quantidade
+            total += subtotal
+            produtos_carrinho.append({
+                'id': produto.id,
+                'nome': produto.nome,
+                'imagem': produto.imagem,
+                'preco': produto.preco,
+                'quantidade': quantidade,
+                'subtotal': subtotal
+            })
+
+    return dict(produtos_carrinho=produtos_carrinho, total=total)
+
 
 # ----------------- LISTA DE DESEJOS -----------------
 @app.route('/add_to_wishlist/<int:id>')
@@ -254,6 +287,21 @@ def wishlist():
 def inject_wishlist_count():
     wishlist_count = len(session.get('wishlist', []))
     return dict(wishlist_count=wishlist_count)
+
+@app.route('/toggle_wishlist/<int:id>')
+def toggle_wishlist(id):
+    produto = Produto.query.get_or_404(id)
+    wishlist = session.get('wishlist', [])
+
+    if id in wishlist:
+        wishlist.remove(id)
+        flash(f'{produto.nome} foi removido da sua lista de desejos.', 'info')
+    else:
+        wishlist.append(id)
+        flash(f'{produto.nome} foi adicionado à sua lista de desejos!', 'success')
+
+    session['wishlist'] = wishlist
+    return redirect(request.referrer or url_for('todos_produtos'))
 
 
 @app.route('/remover_da_wishlist/<int:id>')

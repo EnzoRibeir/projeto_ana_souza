@@ -192,48 +192,47 @@
     </div>
   </div>
 
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Seu carrinho</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Growers cider</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Fresh grapes</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Heinz tomato ketchup</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="MyCart">
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Seu carrinho</span>
+        <span class="badge bg-primary rounded-pill">{{ cart_count }}</span>
+      </h4>
 
-        <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continue para o pagamento</a>
-      </div>
+      {% if produtos_carrinho %}
+      <ul class="list-group mb-3">
+        {% for p in produtos_carrinho %}
+        <li class="list-group-item d-flex justify-content-between align-items-center lh-sm">
+          <div class="d-flex align-items-center">
+            <img src="{{ url_for('static', filename=p.imagem) }}" alt="{{ p.nome }}" width="50" class="me-3 rounded">
+            <div>
+              <h6 class="my-0">{{ p.nome }}</h6>
+              <small class="text-muted">Qtd: {{ p.quantidade }}</small>
+            </div>
+          </div>
+          <div class="text-end">
+            <span class="text-body-secondary">R$ {{ "%.2f"|format(p.subtotal) }}</span><br>
+            <a href="{{ url_for('remover_do_carrinho_nav', id=p.id) }}" class="text-danger small">remover</a>
+          </div>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span><strong>Total</strong></span>
+          <strong>R$ {{ "%.2f"|format(total) }}</strong>
+        </li>
+      </ul>
+
+      <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continuar para o pagamento</a>
+      {% else %}
+      <p class="text-center text-muted mt-5">Seu carrinho está vazio 🛒</p>
+      {% endif %}
     </div>
   </div>
+</div>
 
   <nav class="navbar navbar-expand-lg fixed-top text-white text-uppercase fs-6 p-3 align-items-center border-bottom border-light border-opacity-25 bg-black">
     <div class="container-fluid">
@@ -280,9 +279,6 @@
                   <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('contact') }}">Contato</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('lading_page') }}">Sobre</a>
                 </li>
               </ul>
@@ -293,12 +289,12 @@
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
             <li class="d-none d-lg-block">
-              <a href="wish_list.html" class="text-uppercase mx-3">Lista de desejos <span class="wishlist-count">(0)</span>
+              <a href="{{ url_for('wishlist') }}" class="text-uppercase mx-3">Lista de desejos <span class="wishlist-count">({{ wishlist_count }})</span>
               </a>
             </li>
             <li class="d-none d-lg-block">
               <a href="{{ url_for('cart') }}" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">Carrinho <span class="cart-count">(0)</span>
+                aria-controls="offcanvasCart">Carrinho <span class="cart-count">({{ cart_count }})</span>
               </a>
             </li>
             <li>

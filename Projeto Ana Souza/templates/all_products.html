@@ -191,48 +191,48 @@
     </div>
   </div>
 
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Seu carrinho</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Growers cider</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Fresh grapes</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Heinz tomato ketchup</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="MyCart">
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Seu carrinho</span>
+        <span class="badge bg-primary rounded-pill">{{ cart_count }}</span>
+      </h4>
 
-        <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continue para o pagamento</a>
-      </div>
+      {% if produtos_carrinho %}
+      <ul class="list-group mb-3">
+        {% for p in produtos_carrinho %}
+        <li class="list-group-item d-flex justify-content-between align-items-center lh-sm">
+          <div class="d-flex align-items-center">
+            <img src="{{ url_for('static', filename=p.imagem) }}" alt="{{ p.nome }}" width="50" class="me-3 rounded">
+            <div>
+              <h6 class="my-0">{{ p.nome }}</h6>
+              <small class="text-muted">Qtd: {{ p.quantidade }}</small>
+            </div>
+          </div>
+          <div class="text-end">
+            <span class="text-body-secondary">R$ {{ "%.2f"|format(p.subtotal) }}</span><br>
+            <a href="{{ url_for('remover_do_carrinho_nav', id=p.id) }}" class="text-danger small">remover</a>
+          </div>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span><strong>Total</strong></span>
+          <strong>R$ {{ "%.2f"|format(total) }}</strong>
+        </li>
+      </ul>
+
+      <a class="w-100 btn btn-primary btn-lg" href="{{ url_for('cart') }}">Continuar para o pagamento</a>
+      {% else %}
+      <p class="text-center text-muted mt-5">Seu carrinho está vazio 🛒</p>
+      {% endif %}
     </div>
   </div>
+</div>
+
 
   {% include 'navbar.html' %}
 
@@ -277,7 +277,7 @@
               </a>
 
               <!-- Ícone de coração dinâmico -->
-              <a href="{{ url_for('add_to_wishlist', id=p.id) }}" class="btn-icon btn-wishlist" title="Adicionar aos favoritos">
+              <a href="{{ url_for('toggle_wishlist', id=p.id) }}" class="btn-icon btn-wishlist" title="Adicionar ou remover dos favoritos">
                 {% if p.id in session.get('wishlist', []) %}
                   <!-- Ícone vermelho (favoritado) -->
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="red">
@@ -299,9 +299,7 @@
                 <h5 class="element-title text-uppercase fs-5 mt-3">
                   <a href="{{ url_for('produto_detalhes', id=p.id) }}">{{ p.nome }}</a>
                 </h5>
-                <a href="{{ url_for('produto_detalhes', id=p.id) }}" class="text-decoration-none">
-                  R$ {{ "%.2f"|format(p.preco) }}
-                </a>
+                <a href="{{ url_for('add_to_cart', id=p.id) }}" class="text-decoration-none" data-after="Adicione ao carrinho"><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">R$ {{ "%.2f"|format(p.preco) }}</span></span></span></a>
               </div>
             </div>
           </div>
