@@ -32,8 +32,6 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='lading_page/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ url_for('static', filename='lading_page/favicon.ico') }}"  type="image/x-icon">
     <script type="text/javascript">
               window.onload = function(){
               (function(d, script) {
@@ -68,11 +66,10 @@
                 
                 <ul class="header-nav__list">
                     <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+                    <li><a class="smoothscroll"  href="#about" title="about">Sobre</a></li>
+                    <li><a class="smoothscroll"  href="#services" title="services">Produção</a></li>
+                    <li><a class="smoothscroll"  href="#works" title="works">Produtos</a></li>
+                    <li><a class="smoothscroll"  href="#clients" title="clients">Clientes</a></li>
                 </ul>
     
                 <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p>
@@ -331,19 +328,92 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
                         <div class="item-folio">
                                 
                             <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="Shutterbug" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/lady-shutterbug.jpg" 
-                                         srcset="static/lading_page/images/portfolio/lady-shutterbug.jpg 1x, static/lading_page/images/portfolio/lady-shutterbug@2x.jpg 2x" alt="">
+                                <a href="/produto/2" class="thumb-link" title="Chapéu Lea Vinho" data-size="1050x700">
+                                    <img src="static/resource/categoria1.png" width="580" height="600"
+                                         srcset="static/resource/categoria1.png 1x, static/resource/categoria1.png 2x" alt="">
                                 </a>
                             </div>
     
                             <div class="item-folio__text">
                                 <h3 class="item-folio__title">
-                                    Shutterbug
+                                    Chapéu Lea Vinho
                                 </h3>
-                                <p class="item-folio__cat">
-                                    Branding
-                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+                        </div>
+                    </div> <!-- end masonry__brick -->
+
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="produto/4" class="thumb-link" title="Woodcraft" data-size="1050x700">
+                                    <img src="static/resource/destaque3.png" width="500" height=auto
+                                         srcset="static/resource/destaque3.png 1x, static/resource/destaque3.png 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Bolsa Roz
+                                </h3>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="produto/12" class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                    <img src="static/resource/destaque8.png" width="600" height="600"
+                                         srcset="static/resource/destaque8.png 1x, static/resource/destaque8.png 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Bolsa Chochê Espiral
+                                </h3>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="produto/7" class="thumb-link" title="Grow Green" data-size="1050x700">
+                                    <img src="static/resource/vendidos4.png" width="600" height="600"
+                                         srcset="static/resource/vendidos4.png 1x, static/resource/vendidos4.png 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Chapéu Paynaima
+                                </h3>
                             </div>
     
                             <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
@@ -361,19 +431,16 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
                         <div class="item-folio">
                                 
                             <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title="Woodcraft" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/woodcraft.jpg" 
-                                         srcset="static/lading_page/images/portfolio/woodcraft.jpg 1x, static/lading_page/images/portfolio/woodcraft@2x.jpg 2x" alt="">
+                                <a href="produto/8" class="thumb-link" title="Guitarist" data-size="1050x700">
+                                    <img src="static/resource/vendidos3.png" width="600" height="600" 
+                                         srcset="static/resource/vendidos3.png 1x, static/resource/vendidos3.png 2x" alt="">
                                 </a>
                             </div>
     
                             <div class="item-folio__text">
                                 <h3 class="item-folio__title">
-                                    Woodcraft
+                                    Toca de Crochê Sustentável
                                 </h3>
-                                <p class="item-folio__cat">
-                                    Web Design
-                                </p>
                             </div>
     
                             <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
@@ -391,109 +458,16 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
                         <div class="item-folio">
                                 
                             <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/the-beetle.jpg"
-                                         srcset="static/lading_page/images/portfolio/the-beetle.jpg 1x, static/lading_page/images/portfolio/the-beetle@2x.jpg 2x" alt="">
+                                <a href="produto/3" class="thumb-link" title="Palmeira" data-size="1050x700">
+                                    <img src="static/resource/categoria2.png" width="580" height="600"
+                                         srcset="static/resource/categoria2.png 1x, static/resource/categoria2.png 2x" alt="">
                                 </a>
                             </div>
     
                             <div class="item-folio__text">
                                 <h3 class="item-folio__title">
-                                    The Beetle
+                                    Bolsa de Crochê da Vovó
                                 </h3>
-                                <p class="item-folio__cat">
-                                    Web Development
-                                </p>
-                            </div>
-    
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
-                            </a>
-    
-                            <div class="item-folio__caption">
-                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                            </div>
-    
-                        </div>
-                    </div> <!-- end masonry__brick -->
-    
-                    <div class="masonry__brick" data-aos="fade-up">
-                        <div class="item-folio">
-                                
-                            <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-grow-green.jpg" class="thumb-link" title="Grow Green" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/grow-green.jpg" 
-                                         srcset="static/lading_page/images/portfolio/grow-green.jpg 1x, static/lading_page/images/portfolio/grow-green@2x.jpg 2x" alt="">
-                                </a>
-                            </div>
-    
-                            <div class="item-folio__text">
-                                <h3 class="item-folio__title">
-                                    Grow Green
-                                </h3>
-                                <p class="item-folio__cat">
-                                    Branding
-                                </p>
-                            </div>
-    
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
-                            </a>
-    
-                            <div class="item-folio__caption">
-                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                            </div>
-    
-                        </div>
-                    </div> <!-- end masonry__brick -->
-
-                    <div class="masonry__brick" data-aos="fade-up">
-                        <div class="item-folio">
-                                
-                            <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-guitarist.jpg" class="thumb-link" title="Guitarist" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/guitarist.jpg" 
-                                         srcset="static/lading_page/images/portfolio/guitarist.jpg 1x, static/lading_page/images/portfolio/guitarist@2x.jpg 2x" alt="">
-                                </a>
-                            </div>
-    
-                            <div class="item-folio__text">
-                                <h3 class="item-folio__title">
-                                    Guitarist
-                                </h3>
-                                <p class="item-folio__cat">
-                                    Web Design
-                                </p>
-                            </div>
-    
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
-                            </a>
-    
-                            <div class="item-folio__caption">
-                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                            </div>
-    
-                        </div>
-                    </div> <!-- end masonry__brick -->
-    
-                    <div class="masonry__brick" data-aos="fade-up">
-                        <div class="item-folio">
-                                
-                            <div class="item-folio__thumb">
-                                <a href="static/lading_page/images/portfolio/gallery/g-palmeira.jpg" class="thumb-link" title="Palmeira" data-size="1050x700">
-                                    <img src="static/lading_page/images/portfolio/palmeira.jpg"
-                                         srcset="static/lading_page/images/portfolio/palmeira.jpg 1x, static/lading_page/images/portfolio/palmeira@2x.jpg 2x" alt="">
-                                </a>
-                            </div>
-    
-                            <div class="item-folio__text">
-                                <h3 class="item-folio__title">
-                                    Palmeira
-                                </h3>
-                                <p class="item-folio__cat">
-                                    Web Design
-                                </p>
                             </div>
     
                             <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
@@ -528,16 +502,48 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
         <div class="row clients-outer" data-aos="fade-up">
             <div class="col-full">
                 <div class="clients">
-                    
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/apple.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/atom.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/blackberry.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/dropbox.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/envato.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/firefox.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/joomla.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="static/lading_page/images/clients/magento.png" /></a>
-                     
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/ana_castela.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Ana Castela">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/bruna_marquezine.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Bruna Marquezine">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/jade_picon.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Jade Picon">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/nicole_bahls.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Nicole Bahls">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/tasha.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Tasha">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/paola.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Paola">
+                    </a>
+
+                    <a href="#0" title="" class="clients__slide">
+                    <img src="static/lading_page/images/clients/sabrina_sato.jpg"
+                        style="width:120px; height:120px; border-radius:50%; object-fit:cover;"
+                        alt="Sabrina Sato">
+                    </a>
+
                 </div> <!-- end clients -->
             </div> <!-- end col-full -->
         </div> <!-- end clients-outer -->
@@ -548,9 +554,7 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
 
                     <div class="testimonials__slide">
 
-                        <p>Qui ipsam temporibus quisquam vel. Maiores eos cumque distinctio nam accusantium ipsum. 
-                        Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.
-                        Excepturi nam cupiditate culpa doloremque deleniti repellat.</p>
+                        <p>A verdadeira moda não segue o tempo, ela respeita o ciclo. Minhas mãos dão a forma, a natureza dá o propósito.</p>
 
                         <img src="static/resource/AnaSouza.png" alt="Author image" class="testimonials__avatar">
                         <div class="testimonials__info">
@@ -562,26 +566,24 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
 
                     <div class="testimonials__slide">
                         
-                        <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
-                        Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.</p>
+                        <p>A vingança nunca é plena, mata a alma e envena</p>
 
                         <img src="static/lading_page/images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
                         <div class="testimonials__info">
-                            <span class="testimonials__name">Sundar Pichai</span> 
-                            <span class="testimonials__pos">CEO, Google</span>
+                            <span class="testimonials__name">Zezinha</span> 
+                            <span class="testimonials__pos">Confeccionador</span>
                         </div>
 
                     </div>
 
                     <div class="testimonials__slide">
                         
-                        <p>Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
-                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.</p>
+                        <p>As fumaças falaram por mim</p>
 
                         <img src="static/lading_page/images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
                         <div class="testimonials__info">
-                            <span class="testimonials__name">Satya Nadella</span> 
-                            <span class="testimonials__pos">CEO, Microsoft</span>
+                            <span class="testimonials__name">Fulano</span> 
+                            <span class="testimonials__pos">Cliente</span>
                         </div>
 
                     </div>
@@ -602,7 +604,6 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
             <div class="col-six tab-full left footer-desc">
 
                 <div class="footer-logo"></div>
-                Proin eget tortor risus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Quaerat voluptas autem necessitatibus vitae aut.
 
             </div>
 
@@ -622,18 +623,6 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
             </div>
 
         </div> <!-- end footer-main -->
-
-        <div class="row footer-bottom">
-
-            <div class="col-twelve">
-                <div class="copyright">
-                    <span>© Copyright Glint 2017</span> 
-                    <span>Site Template by <a href="https://www.colorlib.com/">Colorlib</a></span>	
-                </div>
-
-            </div>
-
-        </div> <!-- end footer-bottom -->
 
     </footer> <!-- end footer -->
 
@@ -699,7 +688,16 @@ Em um mundo onde tudo é rápido e descartável, Ana sentiu um chamado. Ela viu 
     <script src="{{ url_for('static', filename='lading_page/js/plugins.js') }}"></script>
     <script src="{{ url_for('static', filename='lading_page/js/main.js') }}"></script>
 
-
+<script>
+document.querySelectorAll('.item-folio__thumb .thumb-link').forEach(link => {
+  link.addEventListener('click', e => {
+    // impede o PhotoSwipe de agir e força o redirecionamento
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.href = link.getAttribute('href');
+  });
+});
+</script>
 </body>
 
 </html>
