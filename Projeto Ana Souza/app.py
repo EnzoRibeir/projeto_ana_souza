@@ -72,9 +72,9 @@ def bio():
 
 @app.route("/home")
 def home():
+    lista_produtos = Produto.query.all()
     posts = Post.query.order_by(Post.id.desc()).limit(3).all()
-    return render_template("home_ecommerce.html", posts=posts)
-
+    return render_template("home_ecommerce.html", posts=posts, produtos=lista_produtos)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
