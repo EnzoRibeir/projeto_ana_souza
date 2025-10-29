@@ -478,18 +478,35 @@
                 <a href="{{ url_for('produto_detalhes', id=p.id) }}">
                   <img src="{{ url_for('static', filename=p.imagem) }}" alt="novidades" class="product-image img-fluid">
                 </a>
-                <a href="wish_list.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
+
+                <!-- Ícone de coração dinâmico -->
+                <a href="{{ url_for('toggle_wishlist', id=p.id) }}" class="btn-icon btn-wishlist" title="Adicionar ou remover dos favoritos">
+                  {% if p.id in session.get('wishlist', []) %}
+                    <!-- Ícone vermelho (favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="red">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                               2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                               C13.09 3.81 14.76 3 16.5 3
+                               19.58 3 22 5.42 22 8.5
+                               c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  {% else %}
+                    <!-- Ícone contornado (não favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                    </svg>
+                  {% endif %}
                 </a>
+
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
                     <a href="{{ url_for('produto_detalhes', id=p.id) }}">{{ p.nome }}</a>
                   </h5>
-                  <form action="{{ url_for('add_to_cart', id=p.id) }}" method="get" style="display:inline;">
-                    <a href="" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$ {{ "%.2f"|format(p.preco) }}</span></a>
-                  </form>
+                  
+                  <!-- Link de adicionar ao carrinho -->
+                  <a href="{{ url_for('add_to_cart', id=p.id) }}" class="text-decoration-none" data-after="Adicione ao carrinho">
+                    <span>R$ {{ "%.2f"|format(p.preco) }}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -505,7 +522,8 @@
           <use xlink:href="#arrow-right"></use>
         </svg></div>
     </div>
-  </section>
+</section>
+
 
   <section class="collection bg-light position-relative py-5">
     <div class="container">
@@ -533,11 +551,11 @@
     </div>
   </section>
 
-  <section id="best-sellers" class="best-sellers product-carousel py-5 position-relative overflow-hidden">
+  <section id="best-selling-items" class="best-selling-items product-carousel py-5 position-relative overflow-hidden">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Itens mais vendidos</h4>
-        <a href="{{ url_for('all_products') }}" class="btn-link">Veja Todos os Produtos</a>
+        <a href="{{ url_for('all_products') }}" class="btn-link">Veja todos os produtos</a>
       </div>
       <div class="swiper product-swiper open-up" data-aos="zoom-out">
         <div class="swiper-wrapper d-flex">
@@ -548,18 +566,35 @@
                 <a href="{{ url_for('produto_detalhes', id=p.id) }}">
                   <img src="{{ url_for('static', filename=p.imagem) }}" alt="novidades" class="product-image img-fluid">
                 </a>
-                <a href="wish_list.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
+
+                <!-- Ícone de coração dinâmico -->
+                <a href="{{ url_for('toggle_wishlist', id=p.id) }}" class="btn-icon btn-wishlist" title="Adicionar ou remover dos favoritos">
+                  {% if p.id in session.get('wishlist', []) %}
+                    <!-- Ícone vermelho (favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="red">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                               2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                               C13.09 3.81 14.76 3 16.5 3
+                               19.58 3 22 5.42 22 8.5
+                               c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  {% else %}
+                    <!-- Ícone contornado (não favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                    </svg>
+                  {% endif %}
                 </a>
+
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
                     <a href="{{ url_for('produto_detalhes', id=p.id) }}">{{ p.nome }}</a>
                   </h5>
-                  <form action="{{ url_for('add_to_cart', id=p.id) }}" method="get" style="display:inline;">
-                    <a href="" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$ {{ "%.2f"|format(p.preco) }}</span></a>
-                  </form>
+                  
+                  <!-- Link de adicionar ao carrinho -->
+                  <a href="{{ url_for('add_to_cart', id=p.id) }}" class="text-decoration-none" data-after="Adicione ao carrinho">
+                    <span>R$ {{ "%.2f"|format(p.preco) }}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -575,7 +610,7 @@
           <use xlink:href="#arrow-right"></use>
         </svg></div>
     </div>
-  </section>
+</section>
 
 
   <section class="testimonials py-5 bg-light">
@@ -624,7 +659,7 @@
     <div class="testimonial-swiper-pagination d-flex justify-content-center mb-5"></div>
   </section>
 
-  <section id="related-products" class="related-products product-carousel py-5 position-relative overflow-hidden">
+ <section id="you-may-also-like" class="you-may-also-like product-carousel py-5 position-relative overflow-hidden">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Você também pode gostar</h4>
@@ -639,18 +674,35 @@
                 <a href="{{ url_for('produto_detalhes', id=p.id) }}">
                   <img src="{{ url_for('static', filename=p.imagem) }}" alt="novidades" class="product-image img-fluid">
                 </a>
-                <a href="wish_list.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
+
+                <!-- Ícone de coração dinâmico -->
+                <a href="{{ url_for('toggle_wishlist', id=p.id) }}" class="btn-icon btn-wishlist" title="Adicionar ou remover dos favoritos">
+                  {% if p.id in session.get('wishlist', []) %}
+                    <!-- Ícone vermelho (favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="red">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                               2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                               C13.09 3.81 14.76 3 16.5 3
+                               19.58 3 22 5.42 22 8.5
+                               c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  {% else %}
+                    <!-- Ícone contornado (não favoritado) -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                    </svg>
+                  {% endif %}
                 </a>
+
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
                     <a href="{{ url_for('produto_detalhes', id=p.id) }}">{{ p.nome }}</a>
                   </h5>
-                  <form action="{{ url_for('add_to_cart', id=p.id) }}" method="get" style="display:inline;">
-                    <a href="" class="text-decoration-none" data-after="Adicione ao carrinho"><span>R$ {{ "%.2f"|format(p.preco) }}</span></a>
-                  </form>
+                  
+                  <!-- Link de adicionar ao carrinho -->
+                  <a href="{{ url_for('add_to_cart', id=p.id) }}" class="text-decoration-none" data-after="Adicione ao carrinho">
+                    <span>R$ {{ "%.2f"|format(p.preco) }}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -666,7 +718,7 @@
           <use xlink:href="#arrow-right"></use>
         </svg></div>
     </div>
-  </section>
+</section>
 
   <section class="blog py-5">
     <div class="container">
