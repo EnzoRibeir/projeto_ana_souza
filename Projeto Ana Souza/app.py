@@ -222,6 +222,51 @@ def update_cart(id, quantidade):
 
     return {'subtotal': subtotal, 'total': total}
 
+# ----------------- LISTA DE DESEJOS -----------------
+@app.route('/add_to_wishlist/<int:id>')
+def add_to_wishlist(id):
+    produto = Produto.query.get_or_404(id)
+
+    # inicializa a wishlist se não existir
+    if 'wishlist' not in session:
+        session['wishlist'] = []
+
+    wishlist = session['wishlist']
+
+    # evita duplicados
+    if id not in wishlist:
+        wishlist.append(id)
+        flash(f'{produto.nome} foi adicionado à sua lista de desejos!', 'success')
+    else:
+        flash(f'{produto.nome} já está na sua lista de desejos.', 'info')
+
+    session['wishlist'] = wishlist
+    return redirect(request.referrer or url_for('todos_produtos'))
+
+
+@app.route('/wishlist')
+def wishlist():
+    wishlist_ids = session.get('wishlist', [])
+    produtos = Produto.query.filter(Produto.id.in_(wishlist_ids)).all()
+    return render_template('wish_list.html', produtos=produtos)
+
+@app.context_processor
+def inject_wishlist_count():
+    wishlist_count = len(session.get('wishlist', []))
+    return dict(wishlist_count=wishlist_count)
+
+
+@app.route('/remover_da_wishlist/<int:id>')
+def remover_da_wishlist(id):
+    wishlist = session.get('wishlist', [])
+    if id in wishlist:
+        wishlist.remove(id)
+        flash('Produto removido da lista de desejos!', 'info')
+
+    session['wishlist'] = wishlist
+    return redirect(url_for('wishlist'))
+
+
 @app.route("/blog")
 def blog():
     posts = Post.query.order_by(Post.id.desc()).all()  # lista todos, do mais recente ao mais antigo

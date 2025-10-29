@@ -56,7 +56,7 @@
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
             <li class="d-none d-lg-block">
-              <a href="wish_list.html" class="text-uppercase mx-3">Lista de desejos <span class="wishlist-count">(0)</span>
+              <a href="{{ url_for('wishlist') }}" class="text-uppercase mx-3">Lista de desejos <span class="wishlist-count">({{ wishlist_count }})</span>
               </a>
             </li>
             <li class="d-none d-lg-block">
@@ -72,7 +72,7 @@
               </a>
             </li>
             <li class="d-lg-none">
-              <a href="wish_list.html" class="mx-2">
+              <a href="{{ url_for('wishlist') }}" class="mx-2">
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <use xlink:href="#heart"></use>
                 </svg>

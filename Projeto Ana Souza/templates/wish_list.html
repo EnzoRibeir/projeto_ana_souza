@@ -226,98 +226,59 @@
 
   {% include 'navbar.html' %}
 
-  <section class="hero-section bg-light py-4">
-    <div class="hero-content">
-      <div class="container">
-        <div class="row">
-          <div class="text-center">
-            <div class="breadcrumbs">
-              <span class="item">
-                <a href="{{ url_for('home') }}">Home /</a>
-              </span>
-              <span class="item">Lista de desejos</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="container my-5">
+    <p class="text-muted">Home / Lista de desejos</p>
 
-  <section id="Wishlist" class="py-5 my-5">
-    <div class="container">
-      <div class="row text-dark my-3">
-        <div class="col-5 text-uppercase">Produto</div>
-        <div class="col-2 text-uppercase">Preço único</div>
-        <div class="col-2 text-uppercase">Status estoque</div>
-      </div>
-      <div class="product-wrapper">
-        <div class="product-item row align-items-center mb-4">
-          <div class="col-4 col-md-1 d-flex align-items-center text-left">
-            <a href="product_details.html">
-              <img srcset="static/resource/vendidos1.png" alt="wishlist" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-8 col-md-4">
-            <h3 class="item-title text-uppercase fs-5">
-              <a href="product_details.html">Chapéu Lea Vinho</a>
-            </h3>
-          </div>
-          <div class="col-3 col-md-2 product-price text-left">
-            <span class="item-price">R$399,99</span>
-          </div>
-          <div class="col-3 col-md-2 wishlist-stock text-left">
-            <span class="item-stock">Disponivel</span>
-          </div>
-          <div class="col-3 col-md-2 wishlist-add text-left">
-            <form action="" method="post" class="variants">
-              <a class="btn btn-outline-dark text-uppercase" title="Add to Cart" href="{{ url_for('cart') }}">Adicione ao carrinho</a>
-            </form>
-          </div>
-          <div class="col-3 col-md-1 text-left">
-            <div class="cart-remove">
-              <a href="#">
-                <svg width="32px">
-                  <use xlink:href="#trash"></use>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="product-item row align-items-center mb-4">
-          <div class="col-4 col-md-1 d-flex align-items-center text-left">
-            <a href="product_details.html">
-              <img srcset="static/resource/destaque4.png" alt="wishlist" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-8 col-md-4">
-            <h3 class="item-title text-uppercase fs-5">
-              <a href="product_details.html">Bolsa croche</a>
-            </h3>
-          </div>
-          <div class="col-3 col-md-2 product-price text-left">
-            <span class="item-price">R$499,99</span>
-          </div>
-          <div class="col-3 col-md-2 wishlist-stock text-left">
-            <span class="item-stock">Indisponivel</span>
-          </div>
-          <div class="col-3 col-md-2 wishlist-add text-left">
-            <form action="" method="post" class="variants">
-              <a class="btn btn-outline-dark text-uppercase" title="Add to Cart" href="{{ url_for('cart') }}">Adicione ao carrinho</a>
-            </form>
-          </div>
-          <div class="col-3 col-md-1 text-left">
-            <div class="cart-remove">
-              <a href="#">
-                <svg width="32px">
-                  <use xlink:href="#trash"></use>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <table class="table align-middle bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>PRODUTO</th>
+                <th>PREÇO ÚNICO</th>
+                <th>STATUS ESTOQUE</th>
+                <th class="text-end ">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in produtos %}
+            <tr>
+                <td class="d-flex align-items-center">
+                  <div class="col-2 d-flex align-items-center text-left">
+                    <img src="{{ url_for('static', filename=p.imagem) }}" alt="{{ p.nome }}" class="img-fluid">
+                    <strong class="ms-5">{{ p.nome }}</strong>
+                  </div>
+                </td>
+                <td class="col-3 col-md-2 product-price text-left">R${{ "%.2f"|format(p.preco) }}</td>
+                <td class="col-3 col-md-2 wishlist-stock text-left">
+                    {% if p.estoque == 'Disponível' %}
+                        <span class="text-success">Disponível</span>
+                    {% else %}
+                        <span class="text-muted">Indisponível</span>
+                    {% endif %}
+                </td>
+                <td class="text-end">
+    <div class="d-flex justify-content-end align-items-center gap-2">
+        <a href="{{ url_for('add_to_cart', id=p.id) }}" class="btn btn-outline-dark text-uppercase">
+            Adicione ao Carrinho
+        </a>
+        <a href="{{ url_for('remover_da_wishlist', id=p.id) }}" class="text-dark">
+            <svg width="32px">
+                <use xlink:href="#trash"></use>
+            </svg>
+        </a>
     </div>
-  </section>
+</td>
+
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center text-muted py-4">
+                    Sua lista de desejos está vazia 😔
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
   <section class="newsletter bg-light" style="background: url(static/resource/pattern-bg.png) no-repeat;">
     <div class="container">
