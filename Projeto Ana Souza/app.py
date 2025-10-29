@@ -38,6 +38,8 @@ class Pedido(db.Model):
     
     # Relação com produtos do pedido
     itens = db.relationship("PedidoProduto", backref="pedido", lazy=True)
+    
+    usuario = db.relationship("Usuario", backref="pedidos")
 
     def total(self):
         """Calcula o total do pedido"""
@@ -382,6 +384,171 @@ def order_details(id):
 
     return render_template('order_details.html', pedido=pedido, produtos_pedido=produtos_pedido)
 
+# -------------------- ROTA ADMIN --------------------
+@app.route("/admin")
+def admin():
+    aba = request.args.get("aba", "usuarios")  # padrão: 'usuarios'
+    
+    usuarios = Usuario.query.all()
+    produtos = Produto.query.all()
+    pedidos = Pedido.query.all()
+    posts = Post.query.all()
+
+    return render_template(
+        "admin.html",
+        aba=aba,
+        usuarios=usuarios,
+        produtos=produtos,
+        pedidos=pedidos,
+        posts=posts
+    )
+
+# -------------------- CRUD USUARIO --------------------
+@app.route("/usuario/add", methods=["POST"])
+def add_usuario():
+    nome = request.form["nome"]
+    email = request.form["email"]
+    senha = request.form["senha"]
+    telefone = request.form["telefone"]
+    data_nascimento = request.form["data_nascimento"]
+    usuario = Usuario(nome=nome, email=email, senha=senha, telefone=telefone, data_nascimento=data_nascimento)
+    db.session.add(usuario)
+    db.session.commit()
+    flash("Usuário adicionado!")
+    return redirect(url_for("admin"))
+
+@app.route("/usuario/edit/<int:id>", methods=["POST"])
+def edit_usuario(id):
+    usuario = Usuario.query.get(id)
+    if usuario:
+        usuario.nome = request.form["nome"]
+        usuario.email = request.form["email"]
+        usuario.senha = request.form["senha"]
+        usuario.telefone = request.form["telefone"]
+        usuario.data_nascimento = request.form["data_nascimento"]
+        db.session.commit()
+        flash("Usuário atualizado!")
+    return redirect(url_for("admin"))
+
+@app.route("/usuario/delete/<int:id>", methods=["POST"])
+def delete_usuario(id):
+    usuario = Usuario.query.get(id)
+    if usuario:
+        db.session.delete(usuario)
+        db.session.commit()
+        flash("Usuário deletado!")
+    return redirect(url_for("admin"))
+
+# -------------------- CRUD PRODUTO --------------------
+@app.route("/produto/add", methods=["POST"])
+def add_produto():
+    produto = Produto(
+        nome=request.form["nome"],
+        descricao=request.form["descricao"],
+        preco=float(request.form["preco"]),
+        quantidade_estoque=int(request.form["quantidade_estoque"]),
+        cor=request.form["cor"],
+        imagem=request.form["imagem"]
+    )
+    db.session.add(produto)
+    db.session.commit()
+    flash("Produto adicionado!")
+    return redirect(url_for("admin"))
+
+@app.route("/produto/edit/<int:id>", methods=["POST"])
+def edit_produto(id):
+    produto = Produto.query.get(id)
+    if produto:
+        produto.nome = request.form["nome"]
+        produto.descricao = request.form["descricao"]
+        produto.preco = float(request.form["preco"])
+        produto.quantidade_estoque = int(request.form["quantidade_estoque"])
+        produto.cor = request.form["cor"]
+        produto.imagem = request.form["imagem"]
+        db.session.commit()
+        flash("Produto atualizado!")
+    return redirect(url_for("admin"))
+
+@app.route("/produto/delete/<int:id>", methods=["POST"])
+def delete_produto(id):
+    produto = Produto.query.get(id)
+    if produto:
+        db.session.delete(produto)
+        db.session.commit()
+        flash("Produto deletado!")
+    return redirect(url_for("admin"))
+
+# -------------------- CRUD POST --------------------
+@app.route("/post/add", methods=["POST"])
+def add_post():
+    post = Post(
+        titulo=request.form["titulo"],
+        subtitulo=request.form["subtitulo"],
+        conteudo=request.form["conteudo"],
+        autor=request.form["autor"],
+        data_publicacao=request.form["data_publicacao"],
+        imagem=request.form["imagem"]
+    )
+    db.session.add(post)
+    db.session.commit()
+    flash("Post adicionado!")
+    return redirect(url_for("admin"))
+
+@app.route("/post/edit/<int:id>", methods=["POST"])
+def edit_post(id):
+    post = Post.query.get(id)
+    if post:
+        post.titulo = request.form["titulo"]
+        post.subtitulo = request.form["subtitulo"]
+        post.conteudo = request.form["conteudo"]
+        post.autor = request.form["autor"]
+        post.data_publicacao = request.form["data_publicacao"]
+        post.imagem = request.form["imagem"]
+        db.session.commit()
+        flash("Post atualizado!")
+    return redirect(url_for("admin"))
+
+@app.route("/post/delete/<int:id>", methods=["POST"])
+def delete_post(id):
+    post = Post.query.get(id)
+    if post:
+        db.session.delete(post)
+        db.session.commit()
+        flash("Post deletado!")
+    return redirect(url_for("admin"))
+
+# -------------------- CRUD PEDIDO --------------------
+@app.route("/pedido/add", methods=["POST"])
+def add_pedido():
+    usuario_id = int(request.form["usuario_id"])
+    status = request.form.get("status", "Em processamento")
+    pedido = Pedido(usuario_id=usuario_id, status=status)
+    db.session.add(pedido)
+    db.session.commit()
+    flash("Pedido adicionado!")
+    return redirect(url_for("admin"))
+
+@app.route("/pedido/edit/<int:id>", methods=["POST"])
+def edit_pedido(id):
+    pedido = Pedido.query.get(id)
+    if pedido:
+        pedido.usuario_id = int(request.form["usuario_id"])
+        pedido.status = request.form.get("status", "Em processamento")
+        db.session.commit()
+        flash("Pedido atualizado!")
+    return redirect(url_for("admin"))
+
+@app.route("/pedido/delete/<int:id>", methods=["POST"])
+def delete_pedido(id):
+    pedido = Pedido.query.get(id)
+    if pedido:
+        # Deletar itens do pedido
+        for item in pedido.itens:
+            db.session.delete(item)
+        db.session.delete(pedido)
+        db.session.commit()
+        flash("Pedido deletado!")
+    return redirect(url_for("admin"))
 
 # ----------------- INICIALIZAR BANCO -----------------
 if __name__ == "__main__":

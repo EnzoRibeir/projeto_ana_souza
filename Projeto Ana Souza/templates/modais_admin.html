@@ -1,0 +1,204 @@
+<!-- Add Usuário -->
+<div class="modal fade" id="addUsuarioModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('add_usuario') }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="nome" placeholder="Nome" required>
+        <input class="form-control mb-2" name="email" placeholder="Email" type="email" required>
+        <input class="form-control mb-2" name="senha" placeholder="Senha" type="password" required>
+        <input class="form-control mb-2" name="telefone" placeholder="Telefone">
+        <input class="form-control mb-2" name="data_nascimento" placeholder="Data de Nascimento (DD/MM/AAAA)">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success">Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Usuário -->
+{% for u in usuarios %}
+<div class="modal fade" id="editUsuarioModal{{ u.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('edit_usuario', id=u.id) }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="nome" value="{{ u.nome }}" required>
+        <input class="form-control mb-2" name="email" value="{{ u.email }}" type="email" required>
+        <input class="form-control mb-2" name="senha" value="{{ u.senha }}" type="password" required>
+        <input class="form-control mb-2" name="telefone" value="{{ u.telefone }}">
+        <input class="form-control mb-2" name="data_nascimento" value="{{ u.data_nascimento }}">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
+
+<!-- -------------------- MODAIS PRODUTO -------------------- -->
+
+<!-- Add Produto -->
+<div class="modal fade" id="addProdutoModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('add_produto') }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar Produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="nome" placeholder="Nome" required>
+        <textarea class="form-control mb-2" name="descricao" placeholder="Descrição" required></textarea>
+        <input class="form-control mb-2" name="preco" placeholder="Preço" type="number" step="0.01" required>
+        <input class="form-control mb-2" name="quantidade_estoque" placeholder="Quantidade Estoque" type="number" required>
+        <input class="form-control mb-2" name="cor" placeholder="Cor">
+        <input class="form-control mb-2" name="imagem" placeholder="Caminho da Imagem">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success">Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Produto -->
+{% for p in produtos %}
+<div class="modal fade" id="editProdutoModal{{ p.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('edit_produto', id=p.id) }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="nome" value="{{ p.nome }}" required>
+        <textarea class="form-control mb-2" name="descricao" required>{{ p.descricao }}</textarea>
+        <input class="form-control mb-2" name="preco" value="{{ p.preco }}" type="number" step="0.01" required>
+        <input class="form-control mb-2" name="quantidade_estoque" value="{{ p.quantidade_estoque }}" type="number" required>
+        <input class="form-control mb-2" name="cor" value="{{ p.cor }}">
+        <input class="form-control mb-2" name="imagem" value="{{ p.imagem }}">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
+
+<!-- -------------------- MODAIS PEDIDO -------------------- -->
+
+<!-- Add Pedido -->
+<div class="modal fade" id="addPedidoModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('add_pedido') }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar Pedido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <select class="form-select mb-2" name="usuario_id" required>
+          <option value="">Selecione Usuário</option>
+          {% for u in usuarios %}
+          <option value="{{ u.id }}">{{ u.nome }}</option>
+          {% endfor %}
+        </select>
+        <input class="form-control mb-2" name="status" placeholder="Status" value="Em processamento">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success">Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Pedido -->
+{% for ped in pedidos %}
+<div class="modal fade" id="editPedidoModal{{ ped.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('edit_pedido', id=ped.id) }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Pedido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <select class="form-select mb-2" name="usuario_id" required>
+          {% for u in usuarios %}
+          <option value="{{ u.id }}" {% if u.id == ped.usuario_id %}selected{% endif %}>{{ u.nome }}</option>
+          {% endfor %}
+        </select>
+        <input class="form-control mb-2" name="status" value="{{ ped.status }}">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
+
+<!-- -------------------- MODAIS POST -------------------- -->
+
+<!-- Add Post -->
+<div class="modal fade" id="addPostModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('add_post') }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="titulo" placeholder="Título" required>
+        <input class="form-control mb-2" name="subtitulo" placeholder="Subtítulo">
+        <textarea class="form-control mb-2" name="conteudo" placeholder="Conteúdo" required></textarea>
+        <input class="form-control mb-2" name="autor" placeholder="Autor">
+        <input class="form-control mb-2" name="data_publicacao" placeholder="Data (DD/MM/AAAA)">
+        <input class="form-control mb-2" name="imagem" placeholder="Caminho da Imagem">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success">Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Post -->
+{% for post in posts %}
+<div class="modal fade" id="editPostModal{{ post.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <form action="{{ url_for('edit_post', id=post.id) }}" method="POST" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control mb-2" name="titulo" value="{{ post.titulo }}" required>
+        <input class="form-control mb-2" name="subtitulo" value="{{ post.subtitulo }}">
+        <textarea class="form-control mb-2" name="conteudo" required>{{ post.conteudo }}</textarea>
+        <input class="form-control mb-2" name="autor" value="{{ post.autor }}">
+        <input class="form-control mb-2" name="data_publicacao" value="{{ post.data_publicacao }}">
+        <input class="form-control mb-2" name="imagem" value="{{ post.imagem }}">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
